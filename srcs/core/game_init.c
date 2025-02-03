@@ -2,15 +2,22 @@
 
 int	init_game(t_game *game)
 {
-	game->img_width = 32;
-	game->img_height = 32;
-	game->scale = 1;
+	game->img_width = 64;
+	game->img_height = 64;
+	// game->scale = 1;
 	game->moves = 0;
 	game->map = NULL;
-	game->wall_img = NULL;
 	game->player_img = NULL;
 	game->win = NULL;
-	
+	game->walls.top = NULL;
+	game->walls.bottom = NULL;
+	game->walls.left = NULL;
+	game->walls.right = NULL;
+	game->walls.corner_tl = NULL;
+	game->walls.corner_tr = NULL;
+	game->walls.corner_bl = NULL;
+	game->walls.corner_br = NULL;
+	game->walls.block = NULL;
 	game->mlx = mlx_init();
 	if (!game->mlx)
 	{
@@ -20,17 +27,44 @@ int	init_game(t_game *game)
 	return (1);
 }
 
-int	init_sprites(t_game *game)
+static int  load_wall_sprites(t_game *game)
 {
-	game->wall_img = mlx_xpm_file_to_image(game->mlx, "sprites/wall.xpm", 
-		&game->img_width, &game->img_height);
-	game->player_img = mlx_xpm_file_to_image(game->mlx, "sprites/player.xpm", 
-		&game->img_width, &game->img_height);
-	
-	if (!game->wall_img || !game->player_img)
-	{
-		write(2, "Error\nFailed to load sprites\n", 28);
-		return (0);
-	}
-	return (1);
+    game->walls.top = mlx_xpm_file_to_image(game->mlx,
+        "srcs/assets/wall/top.xpm", &game->img_width, &game->img_height);
+    game->walls.bottom = mlx_xpm_file_to_image(game->mlx,
+        "srcs/assets/wall/bottom.xpm", &game->img_width, &game->img_height);
+    game->walls.left = mlx_xpm_file_to_image(game->mlx,
+        "srcs/assets/wall/wall_l.xpm", &game->img_width, &game->img_height);
+    game->walls.right = mlx_xpm_file_to_image(game->mlx,
+        "srcs/assets/wall/wall_r.xpm", &game->img_width, &game->img_height);
+    game->walls.corner_tl = mlx_xpm_file_to_image(game->mlx,
+        "srcs/assets/wall/corner_h_l.xpm", &game->img_width, &game->img_height);
+    game->walls.corner_tr = mlx_xpm_file_to_image(game->mlx,
+        "srcs/assets/wall/corner_h_r.xpm", &game->img_width, &game->img_height);
+    game->walls.corner_bl = mlx_xpm_file_to_image(game->mlx,
+        "srcs/assets/wall/corner_b_l.xpm", &game->img_width, &game->img_height);
+    game->walls.corner_br = mlx_xpm_file_to_image(game->mlx,
+        "srcs/assets/wall/corner_b_r.xpm", &game->img_width, &game->img_height);
+    game->walls.block = mlx_xpm_file_to_image(game->mlx,
+        "srcs/assets/wall/bloc.xpm", &game->img_width, &game->img_height);
+    return (game->walls.top && game->walls.bottom && game->walls.left
+        && game->walls.right && game->walls.corner_tl && game->walls.corner_tr
+        && game->walls.corner_bl && game->walls.corner_br && game->walls.block);
+}
+
+int init_sprites(t_game *game)
+{
+    if (!load_wall_sprites(game))
+    {
+        write(2, "Error\nFailed to load wall sprites\n", 33);
+        return (0);
+    }
+    game->player_img = mlx_xpm_file_to_image(game->mlx, "srcs/assets/player/player.xpm",
+        &game->img_width, &game->img_height);
+    if (!game->player_img)
+    {
+        write(2, "Error\nFailed to load player sprite\n", 34);
+        return (0);
+    }
+    return (1);
 }

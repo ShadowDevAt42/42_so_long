@@ -18,21 +18,34 @@
 # define KEY_DOWN 65364
 # define KEY_RIGHT 65363
 
+typedef struct s_wall_sprites
+{
+    void    *top;
+    void    *bottom;
+    void    *left;
+    void    *right;
+    void    *corner_tl;
+    void    *corner_tr;
+    void    *corner_bl;
+    void    *corner_br;
+    void    *block;
+}   t_wall_sprites;
+
 typedef struct s_game
 {
-    void    *mlx;
-    void    *win;
-    char    **map;
-    void    *wall_img;
-    void    *player_img;
-    int     width;
-    int     height;
-    int     img_width;
-    int     img_height;
-    int     player_x;
-    int     player_y;
-    int     moves;
-    int     scale;
+    void            *mlx;
+    void            *win;
+    char            **map;
+    t_wall_sprites  walls;
+    void            *player_img;
+    int             width;
+    int             height;
+    int             img_width;
+    int             img_height;
+    int             player_x;
+    int             player_y;
+    int             moves;
+    // int             scale;
 }   t_game;
 
 /* srcs/utils/memory_utils.c */
