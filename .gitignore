@@ -11,3 +11,9 @@
 
 pkg/
 src/
+save/
+.vscode/
+sprites/king/
+sprites/standard/
+sprites/Pixel_Crawler/
+sprites/Tiles/
