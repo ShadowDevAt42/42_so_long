@@ -6,6 +6,13 @@ int	init_game(t_game *game)
 	game->img_height = 64;
 	// game->scale = 1;
 	game->moves = 0;
+	game->player_screen_x = 0;
+    game->player_screen_y = 0;
+    game->is_moving = 0;
+    game->move_direction_x = 0;
+    game->move_direction_y = 0;
+    game->target_x = 0;
+    game->target_y = 0;
 	game->map = NULL;
 	game->player_img = NULL;
 	game->win = NULL;

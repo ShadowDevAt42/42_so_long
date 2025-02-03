@@ -44,8 +44,14 @@ typedef struct s_game
     int             img_height;
     int             player_x;
     int             player_y;
+    float           player_screen_x;  // Position réelle à l'écran
+    float           player_screen_y;  // Position réelle à l'écran
+    int             target_x;        // Position cible
+    int             target_y;        // Position cible
+    int             is_moving;       // Flag pour indiquer si en mouvement
+    int             move_direction_x; // Direction actuelle
+    int             move_direction_y; // Direction actuelle
     int             moves;
-    // int             scale;
 }   t_game;
 
 /* srcs/utils/memory_utils.c */
@@ -59,6 +65,8 @@ int     init_sprites(t_game *game);
 
 /* srcs/core/game_loop.c */
 int     launch_game(t_game *game);
+int     game_update(t_game *game);  // Ajout du prototype
+
 
 /* srcs/core/game_cleanup.c */
 void    clean_game(t_game *game);

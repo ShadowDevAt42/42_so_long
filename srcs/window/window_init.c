@@ -67,6 +67,8 @@ void	draw_map(t_game *game)
 			x++;
 		}
 		y++;
+		mlx_put_image_to_window(game->mlx, game->win, game->player_img,
+        (int)game->player_screen_x, (int)game->player_screen_y);
 	}
 	mlx_put_image_to_window(game->mlx, game->win, game->player_img,
 		game->player_x * game->img_width,
