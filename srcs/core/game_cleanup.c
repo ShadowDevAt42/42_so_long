@@ -22,20 +22,34 @@ static void clean_wall_sprites(t_game *game)
         mlx_destroy_image(game->mlx, game->walls.block);
 }
 
-void    clean_game(t_game *game)
+static void	clean_collectible_sprites(t_game *game)
 {
-    clean_wall_sprites(game);
-    if (game->player_img)
-        mlx_destroy_image(game->mlx, game->player_img);
-    if (game->map)
-        free_map(game);
-    if (game->win)
-        mlx_destroy_window(game->mlx, game->win);
-    if (game->mlx)
-    {
-        mlx_destroy_display(game->mlx);
-        free(game->mlx);
-    }
+	int	i;
+
+	i = 0;
+	while (i < game->collectibles.frame_count)
+	{
+		if (game->collectibles.frames[i])
+			mlx_destroy_image(game->mlx, game->collectibles.frames[i]);
+		i++;
+	}
+}
+
+void	clean_game(t_game *game)
+{
+	clean_wall_sprites(game);
+	clean_collectible_sprites(game);
+	if (game->player_img)
+		mlx_destroy_image(game->mlx, game->player_img);
+	if (game->map)
+		free_map(game);
+	if (game->win)
+		mlx_destroy_window(game->mlx, game->win);
+	if (game->mlx)
+	{
+		mlx_destroy_display(game->mlx);
+		free(game->mlx);
+	}
 }
 
 int	handle_close(t_game *game)

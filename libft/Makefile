@@ -6,7 +6,7 @@
 #    By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 14:21:40 by fdi-tria          #+#    #+#              #
-#    Updated: 2025/02/03 16:16:47 by fdi-tria         ###   ########.fr        #
+#    Updated: 2025/02/03 20:14:11 by fdi-tria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,9 @@ SRCS = $(SRC_DIR)ft_printf.c \
 	$(SRC_DIR)ft_strlen.c \
 	$(SRC_DIR)ft_calloc.c \
 	$(SRC_DIR)ft_bzero.c \
+	$(SRC_DIR)ft_memset.c \
+	$(SRC_DIR)ft_strlcpy.c \
+		$(SRC_DIR)ft_strlcat.c 
 
 
 # Object files

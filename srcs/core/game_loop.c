@@ -20,6 +20,7 @@ int launch_game(t_game *game)
     }
     game->player_screen_x = game->player_x * game->img_width;
     game->player_screen_y = game->player_y * game->img_height;
+	game->collectibles.anim_timer = 0;  // Initialisation du timer
     
     setup_game_hooks(game);
     mlx_loop_hook(game->mlx, game_update, game);
@@ -79,12 +80,17 @@ static int update_player_position(t_game *game)
     return (1);
 }
 
-int game_update(t_game *game)
+int	game_update(t_game *game)
 {
-    if (update_player_position(game))
-    {
-        mlx_clear_window(game->mlx, game->win);
-        draw_map(game);
-    }
-    return (0);
+	update_collectible_animation(game);
+	
+	if (update_player_position(game))
+	{
+		check_collectible(game);
+	}
+	
+	mlx_clear_window(game->mlx, game->win);
+	draw_map(game);
+	
+	return (0);
 }

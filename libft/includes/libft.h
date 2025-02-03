@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 14:17:27 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/03 16:16:44 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/03 20:13:51 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,8 @@ int	ft_puthex(unsigned long n, int uppercase);
 size_t	ft_strlen(const char *s);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+void	*ft_memset(void *b, int c, size_t len);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
 #endif

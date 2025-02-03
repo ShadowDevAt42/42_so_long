@@ -18,6 +18,7 @@ MAP_DIR = map/
 PLAYER_DIR = player/
 WINDOW_DIR = window/
 UTILS_DIR = utils/
+COLLECTIBLE_DIR= collectible/
 
 # Source files
 SRCS = $(SRC_DIR)main.c \
@@ -30,7 +31,9 @@ SRCS = $(SRC_DIR)main.c \
 	$(SRC_DIR)$(PLAYER_DIR)player_movement.c \
 	$(SRC_DIR)$(WINDOW_DIR)window_init.c \
 	$(SRC_DIR)$(WINDOW_DIR)window_events.c \
-	$(SRC_DIR)$(UTILS_DIR)memory_utils.c
+	$(SRC_DIR)$(UTILS_DIR)memory_utils.c \
+	$(SRC_DIR)$(COLLECTIBLE_DIR)collectible_init.c \
+	$(SRC_DIR)$(COLLECTIBLE_DIR)collectible_update.c
 
 # Object files with new directory
 OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
@@ -41,7 +44,8 @@ OBJ_DIRS = $(OBJ_DIR) \
 	$(OBJ_DIR)$(MAP_DIR) \
 	$(OBJ_DIR)$(PLAYER_DIR) \
 	$(OBJ_DIR)$(WINDOW_DIR) \
-	$(OBJ_DIR)$(UTILS_DIR)
+	$(OBJ_DIR)$(UTILS_DIR) \
+	$(OBJ_DIR)$(COLLECTIBLE_DIR)
 
 # Header files
 INCLUDES = -I$(MLX_PATH) -I$(LIBFT_PATH)includes -Iincludes

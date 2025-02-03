@@ -13,6 +13,8 @@ int	init_game(t_game *game)
     game->move_direction_y = 0;
     game->target_x = 0;
     game->target_y = 0;
+	game->collected = 0;
+	game->collectible_count = 0;
 	game->map = NULL;
 	game->player_img = NULL;
 	game->win = NULL;
@@ -59,19 +61,33 @@ static int  load_wall_sprites(t_game *game)
         && game->walls.corner_bl && game->walls.corner_br && game->walls.block);
 }
 
-int init_sprites(t_game *game)
+int	init_sprites(t_game *game)
 {
-    if (!load_wall_sprites(game))
-    {
-        write(2, "Error\nFailed to load wall sprites\n", 33);
-        return (0);
-    }
-    game->player_img = mlx_xpm_file_to_image(game->mlx, "srcs/assets/player/player.xpm",
-        &game->img_width, &game->img_height);
-    if (!game->player_img)
-    {
-        write(2, "Error\nFailed to load player sprite\n", 34);
-        return (0);
-    }
-    return (1);
+	int	i;
+
+	if (!load_wall_sprites(game))
+	{
+		write(2, "Error\nFailed to load wall sprites\n", 33);
+		return (0);
+	}
+	// Initialiser les frames à NULL
+	i = 0;
+	while (i < 10)
+	{
+		game->collectibles.frames[i] = NULL;
+		i++;
+	}
+	if (!init_collectible_sprites(game))
+	{
+		return (0);
+	}
+	game->player_img = mlx_xpm_file_to_image(game->mlx, 
+		"srcs/assets/player/player.xpm",
+		&game->img_width, &game->img_height);
+	if (!game->player_img)
+	{
+		write(2, "Error\nFailed to load player sprite\n", 34);
+		return (0);
+	}
+	return (1);
 }

@@ -31,6 +31,14 @@ typedef struct s_wall_sprites
     void    *block;
 }   t_wall_sprites;
 
+typedef struct s_collectible_sprites
+{
+    void    *frames[10];
+    int     current_frame;
+    int     frame_count;
+    int     anim_timer;     // Pour contrôler la vitesse d'animation
+}   t_collectible_sprites;
+
 typedef struct s_game
 {
     void            *mlx;
@@ -52,6 +60,9 @@ typedef struct s_game
     int             move_direction_x; // Direction actuelle
     int             move_direction_y; // Direction actuelle
     int             moves;
+	t_collectible_sprites collectibles;
+    int     collectible_count;    // Nombre total de collectibles
+    int     collected;            // Nombre de collectibles ramassés
 }   t_game;
 
 /* srcs/utils/memory_utils.c */
@@ -93,5 +104,13 @@ void    draw_map(t_game *game);
 int     handle_keypress(int keysym, t_game *game);
 int     handle_destroy(t_game *game);
 int     redraw(t_game *game);
+
+/* srcs/collectible/collectible_init.c */
+int		init_collectible_sprites(t_game *game);
+
+/* srcs/collectible/collectible_update.c */
+void	update_collectible_animation(t_game *game);
+void	draw_collectibles(t_game *game);
+void	check_collectible(t_game *game);
 
 #endif
