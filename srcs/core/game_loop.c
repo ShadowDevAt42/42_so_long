@@ -82,7 +82,9 @@ static int update_player_position(t_game *game)
 
 int	game_update(t_game *game)
 {
+	check_door_condition(game); // Vérifie avant toute mise à jour
 	update_collectible_animation(game);
+	update_door_animation(game);
 	
 	if (update_player_position(game))
 	{

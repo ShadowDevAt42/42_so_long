@@ -81,6 +81,11 @@ int	init_sprites(t_game *game)
 	{
 		return (0);
 	}
+	if (!init_door_sprites(game))
+	{
+    write(2, "Error\nFailed to load door sprites\n", 33);
+    return (0);
+	}
 	game->player_img = mlx_xpm_file_to_image(game->mlx, 
 		"srcs/assets/player/player.xpm",
 		&game->img_width, &game->img_height);

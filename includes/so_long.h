@@ -39,6 +39,19 @@ typedef struct s_collectible_sprites
     int     anim_timer;     // Pour contrôler la vitesse d'animation
 }   t_collectible_sprites;
 
+typedef struct s_door_sprites
+{
+    void    *closed;         // Idle.xpm
+    void    *frames[5];      // anim01.xpm à anim05.xpm
+    int     current_frame;   // Pour l'animation
+    int     frame_count;     // Nombre total de frames (5)
+    int     is_animating;    // Si l'animation est en cours
+    int     is_open;         // Si la porte est ouverte
+    int     pos_x;          // Position X de la porte
+    int     pos_y;          // Position Y de la porte
+    int     anim_timer;     // Pour contrôler la vitesse d'animation
+}   t_door_sprites;
+
 typedef struct s_game
 {
     void            *mlx;
@@ -63,6 +76,7 @@ typedef struct s_game
 	t_collectible_sprites collectibles;
     int     collectible_count;    // Nombre total de collectibles
     int     collected;            // Nombre de collectibles ramassés
+	t_door_sprites    door;
 }   t_game;
 
 /* srcs/utils/memory_utils.c */
@@ -112,5 +126,13 @@ int		init_collectible_sprites(t_game *game);
 void	update_collectible_animation(t_game *game);
 void	draw_collectibles(t_game *game);
 void	check_collectible(t_game *game);
+
+/* srcs/door/door_init.c */
+int		init_door_sprites(t_game *game);
+
+/* srcs/door/door_update.c */
+void	update_door_animation(t_game *game);
+void	draw_door(t_game *game);
+void	check_door_condition(t_game *game);
 
 #endif

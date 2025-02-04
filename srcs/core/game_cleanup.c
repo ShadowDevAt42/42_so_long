@@ -35,10 +35,26 @@ static void	clean_collectible_sprites(t_game *game)
 	}
 }
 
+static void	clean_door_sprites(t_game *game)
+{
+	int	i;
+
+	if (game->door.closed)
+		mlx_destroy_image(game->mlx, game->door.closed);
+	i = 0;
+	while (i < game->door.frame_count)
+	{
+		if (game->door.frames[i])
+			mlx_destroy_image(game->mlx, game->door.frames[i]);
+		i++;
+	}
+}
+
 void	clean_game(t_game *game)
 {
 	clean_wall_sprites(game);
 	clean_collectible_sprites(game);
+	clean_door_sprites(game);
 	if (game->player_img)
 		mlx_destroy_image(game->mlx, game->player_img);
 	if (game->map)

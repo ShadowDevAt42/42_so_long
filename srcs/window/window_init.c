@@ -51,7 +51,31 @@ static void	put_wall_sprite(t_game *game, int x, int y)
 			game->walls.block, x * game->img_width, y * game->img_height);
 }
 
-void	draw_map(t_game *game)
+static void	draw_floor(t_game *game)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y < game->height)
+	{
+		x = 0;
+		while (x < game->width)
+		{
+			if (game->map[y][x] == 'E' && !game->door.is_animating 
+				&& !game->door.is_open)
+			{
+				mlx_put_image_to_window(game->mlx, game->win,
+					game->door.closed, x * game->img_width,
+					y * game->img_height);
+			}
+			x++;
+		}
+		y++;
+	}
+}
+
+static void	draw_walls(t_game *game)
 {
 	int	x;
 	int	y;
@@ -68,10 +92,18 @@ void	draw_map(t_game *game)
 		}
 		y++;
 	}
+}
+
+void	draw_map(t_game *game)
+{
+	mlx_clear_window(game->mlx, game->win);
+	
+	draw_floor(game);
+	draw_walls(game);
 	draw_collectibles(game);
-	mlx_put_image_to_window(game->mlx, game->win, game->player_img,
-	(int)game->player_screen_x, (int)game->player_screen_y);
-	mlx_put_image_to_window(game->mlx, game->win, game->player_img,
-		game->player_x * game->img_width,
-		game->player_y * game->img_height);
+	mlx_put_image_to_window(game->mlx, game->win,
+		game->player_img, (int)game->player_screen_x,
+		(int)game->player_screen_y);
+	if (game->door.is_animating || game->door.is_open)
+		draw_door(game);
 }
