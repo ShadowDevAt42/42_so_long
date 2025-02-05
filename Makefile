@@ -34,6 +34,7 @@ INIT_DIR = init/
 # Source files
 SRCS = $(SRC_DIR)main.c \
 	$(SRC_DIR)$(INIT_DIR)map_init.c \
+	$(SRC_DIR)$(INIT_DIR)init_game.c \
 	$(SRC_DIR)$(MAP_DIR)map_validate_basic.c \
 	$(SRC_DIR)$(MAP_DIR)map_validate_elements.c \
 	$(SRC_DIR)$(MAP_DIR)map_read.c \
@@ -64,7 +65,7 @@ make_libs:
 
 $(NAME): create_dirs $(OBJS)
 	@echo "Linking so_long..."
-	$(CC) $(OBJS) $(MLX_FLAGS) $(LIBFT_FLAGS) -o $(NAME)
+	$(CC) $(OBJS) $(MLX_FLAGS) $(LIBFT_FLAGS) -o $(NAME) -lm
 
 create_dirs:
 	@mkdir -p $(OBJ_DIRS)
