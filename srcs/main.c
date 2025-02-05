@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 23:13:32 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 02:56:05 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/05 04:02:42 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,13 @@ int	main(int argc, char **argv)
 		handle_error(error);
 		return (1);
 	}
-	game = init_game(map);
-    if (!game)
+	game = init_window(map);
+    if (!game || load_sprites(game) != ERR_NONE)
     {
         free_map(map);
         return (1);
     }
+    render_walls(game);
     mlx_loop(game->mlx);
     return (0);
 }

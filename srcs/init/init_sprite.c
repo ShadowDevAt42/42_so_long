@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   init_sprite.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/04 22:39:36 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 04:03:44 by fdi-tria         ###   ########.fr       */
+/*   Created: 2025/02/05 04:01:30 by fdi-tria          #+#    #+#             */
+/*   Updated: 2025/02/05 04:01:33 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "../../includes/so_long.h"
 
-// Includes
-# include "init.h"
-# include "error.h"
-# include "map.h"
-# include "render.h"
-# include "../libs/libft/includes/libft.h"
-# include "../libs/minilibx-linux/mlx.h"
-# include <fcntl.h>
-# include <stdio.h>
+void    free_sprites(t_game *game)
+{
+    if (!game || !game->mlx)
+        return ;
+    if (game->wall.img)
+        mlx_destroy_image(game->mlx, game->wall.img);
+}
 
-// Constants
-# define SPRITE_SIZE 64
-# define MAX_WIDTH 1920
-# define MAX_HEIGHT 1080
-# define MAP_CHARS "01CEP\n"
+t_error load_sprites(t_game *game)
+{
+    t_error error;
 
-#endif
+    error = init_wall(game);
+    if (error != ERR_NONE)
+        return (error);
+    return (ERR_NONE);
+}

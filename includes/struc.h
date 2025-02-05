@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 01:14:40 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 02:54:08 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/05 03:22:28 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,19 @@ typedef enum e_error
 	ERR_MULTI_EXIT,
 	ERR_NO_COLLECT,
 	ERR_TOO_BIG,
-	ERR_PATH
+	ERR_PATH,
+	ERR_MLX_INIT,        // Erreur d'initialisation de MLX
+    ERR_WIN_INIT,        // Erreur de création de fenêtre
+    ERR_SPRITE_LOAD,     // Erreur de chargement de sprite
+    ERR_IMG_CREATE,      // Erreur de création d'image
+    ERR_SPRITE_PATH      // Erreur de chemin de sprite
 }	t_error;
+
+typedef struct s_error_info
+{
+    char    *sprite_path;
+    char    *additional_info;
+}   t_error_info;
 
 /**
  * @brief Structure représentant la carte du jeu.

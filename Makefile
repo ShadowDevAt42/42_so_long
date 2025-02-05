@@ -30,11 +30,15 @@ OBJ_DIR = objs/
 MAP_DIR = map/
 ERROR_DIR = error/
 INIT_DIR = init/
+RENDER_DIR = render/
 
 # Source files
 SRCS = $(SRC_DIR)main.c \
 	$(SRC_DIR)$(INIT_DIR)map_init.c \
-	$(SRC_DIR)$(INIT_DIR)init_game.c \
+	$(SRC_DIR)$(INIT_DIR)init_sprite.c \
+	$(SRC_DIR)$(INIT_DIR)init_wall.c \
+	$(SRC_DIR)$(INIT_DIR)init_window.c \
+	$(SRC_DIR)$(RENDER_DIR)render_wall.c \
 	$(SRC_DIR)$(MAP_DIR)map_validate_basic.c \
 	$(SRC_DIR)$(MAP_DIR)map_validate_elements.c \
 	$(SRC_DIR)$(MAP_DIR)map_read.c \
@@ -50,7 +54,8 @@ OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 OBJ_DIRS = $(OBJ_DIR) \
 	$(OBJ_DIR)$(MAP_DIR) \
 	$(OBJ_DIR)$(ERROR_DIR) \
-	$(OBJ_DIR)$(INIT_DIR)
+	$(OBJ_DIR)$(INIT_DIR) \
+	$(OBJ_DIR)$(RENDER_DIR)
 
 # Header files
 INCLUDES	= -I./includes -I$(LIBFT_PATH)/includes -I$(MLX_PATH)
