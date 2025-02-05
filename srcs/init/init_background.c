@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 05:41:20 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 05:48:54 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/05 15:32:00 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void fill_background(t_game *game)
         {
             dest = game->background.addr + (y * game->background.line_length
                 + x * (game->background.bits_per_pixel / 8));
-            *(unsigned int *)dest = 0x001981B2;  // Couleur bleu ciel
+            *(unsigned int *)dest = 0x0087CEEB;  // Couleur bleu ciel
             x++;
         }
         y++;
