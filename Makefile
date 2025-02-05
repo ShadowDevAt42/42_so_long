@@ -108,6 +108,10 @@ fclean: clean
 	@rm -f $(MLX_PATH)/libmlx.a
 	@rm -f $(MLX_PATH)/libmlx_Linux.a
 
+debug: CFLAGS += -g
+debug: re
+	@echo "Programme compilé avec les symboles de débogage"
+
 re: fclean all
 
-.PHONY: all clean fclean re make_libs create_dirs
+.PHONY: all clean fclean re make_libs create_dirs debug

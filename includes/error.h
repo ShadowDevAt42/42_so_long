@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 02:10:10 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 03:27:55 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/05 18:14:40 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,8 @@
 
 # include "struc.h"
 
-/*
-** Error handling
-*/
-void		handle_error(t_error error_code);
-char		*get_error_message(t_error error_code);
-void    handle_error_with_info(t_error error_code, t_error_info *error_info);
+void	handle_error(t_error error_code);
+char	*get_error_message(t_error error_code);
+void	handle_error_with_info(t_error error_code, t_error_info *error_info);
 
 #endif

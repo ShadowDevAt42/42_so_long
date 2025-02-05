@@ -6,18 +6,18 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 04:39:55 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 05:42:13 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/05 17:35:15 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-void    render_game(t_game *game)
+void	render_game(t_game *game)
 {
-    mlx_clear_window(game->mlx, game->win);
-    render_background(game);  // Ajout du render background en premier
-    render_walls(game);
-    render_collectibles(game);
-    render_exit(game);
-    render_player(game);
+	mlx_clear_window(game->mlx, game->win);
+	render_background(game);
+	render_walls(game);
+	render_collectibles(game);
+	render_exit(game);
+	render_player(game);
 }

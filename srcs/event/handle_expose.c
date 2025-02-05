@@ -6,14 +6,14 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 04:13:18 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 04:40:40 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/05 17:56:25 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-int    handle_expose(t_game *game)
+int	handle_expose(t_game *game)
 {
-    render_game(game);
-    return (0);
+	render_game(game);
+	return (0);
 }

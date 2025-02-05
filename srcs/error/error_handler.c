@@ -6,25 +6,25 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 23:45:00 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 03:24:59 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/05 17:29:50 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-static char    *get_error_message3(t_error error_code)
+static char	*get_error_message3(t_error error_code)
 {
-    if (error_code == ERR_MLX_INIT)
-        return ("Failed to initialize MLX");
-    if (error_code == ERR_WIN_INIT)
-        return ("Failed to create window");
-    if (error_code == ERR_SPRITE_LOAD)
-        return ("Failed to load sprite");
-    if (error_code == ERR_IMG_CREATE)
-        return ("Failed to create image");
-    if (error_code == ERR_SPRITE_PATH)
-        return ("Invalid sprite path");
-    return ("Unknown error occurred");
+	if (error_code == ERR_MLX_INIT)
+		return ("Failed to initialize MLX");
+	if (error_code == ERR_WIN_INIT)
+		return ("Failed to create window");
+	if (error_code == ERR_SPRITE_LOAD)
+		return ("Failed to load sprite");
+	if (error_code == ERR_IMG_CREATE)
+		return ("Failed to create image");
+	if (error_code == ERR_SPRITE_PATH)
+		return ("Invalid sprite path");
+	return ("Unknown error occurred");
 }
 
 /**
@@ -120,16 +120,16 @@ char	*get_error_message(t_error error_code)
 	return (get_error_message2(error_code));
 }
 
-void    handle_error_with_info(t_error error_code, t_error_info *error_info)
+void	handle_error_with_info(t_error error_code, t_error_info *error_info)
 {
-    ft_printf("Error\n%s\n", get_error_message(error_code));
-    if (error_info)
-    {
-        if (error_info->sprite_path)
-            ft_printf("Sprite path: %s\n", error_info->sprite_path);
-        if (error_info->additional_info)
-            ft_printf("Additional info: %s\n", error_info->additional_info);
-    }
+	ft_printf("Error\n%s\n", get_error_message(error_code));
+	if (error_info)
+	{
+		if (error_info->sprite_path)
+			ft_printf("Sprite path: %s\n", error_info->sprite_path);
+		if (error_info->additional_info)
+			ft_printf("Additional info: %s\n", error_info->additional_info);
+	}
 }
 
 /**
@@ -145,7 +145,7 @@ void    handle_error_with_info(t_error error_code, t_error_info *error_info)
  *
  * @param error_code Le code d'erreur qui a déclenché l'affichage du message.
  */
-void    handle_error(t_error error_code)
+void	handle_error(t_error error_code)
 {
-    handle_error_with_info(error_code, NULL);
+	handle_error_with_info(error_code, NULL);
 }
