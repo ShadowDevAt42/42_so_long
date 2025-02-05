@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   init.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/04 22:39:36 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 02:11:57 by fdi-tria         ###   ########.fr       */
+/*   Created: 2025/02/05 02:05:46 by fdi-tria          #+#    #+#             */
+/*   Updated: 2025/02/05 02:07:18 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef INIT_H
+# define INIT_H
 
-// Includes
-# include "init.h"
-# include "error.h"
-# include "map.h"
-# include "../libs/libft/includes/libft.h"
-# include <fcntl.h>
-# include <stdio.h>
+# include "struc.h"
 
-// Constants
-# define SPRITE_SIZE 64
-# define MAX_WIDTH 1920
-# define MAX_HEIGHT 1080
-# define MAP_CHARS "01CEP\n"
+t_map		*init_map(void);
+void		free_map(t_map *map);
 
 #endif

@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/04 22:39:36 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 02:11:57 by fdi-tria         ###   ########.fr       */
+/*   Created: 2025/02/04 22:58:36 by fdi-tria          #+#    #+#             */
+/*   Updated: 2025/02/04 22:58:55 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "../includes/libft.h"
 
-// Includes
-# include "init.h"
-# include "error.h"
-# include "map.h"
-# include "../libs/libft/includes/libft.h"
-# include <fcntl.h>
-# include <stdio.h>
-
-// Constants
-# define SPRITE_SIZE 64
-# define MAX_WIDTH 1920
-# define MAX_HEIGHT 1080
-# define MAP_CHARS "01CEP\n"
-
-#endif
+char	*ft_strchr(const char *s, int c)
+{
+	while (*s != '\0')
+	{
+		if (*s == (unsigned char)c)
+			return ((char *)s);
+		s++;
+	}
+	if ((unsigned char)c == '\0')
+		return ((char *)s);
+	return (NULL);
+}
