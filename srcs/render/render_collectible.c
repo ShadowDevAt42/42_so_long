@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_keypress.c                                  :+:      :+:    :+:   */
+/*   render_collectible.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 04:11:44 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 04:40:27 by fdi-tria         ###   ########.fr       */
+/*   Created: 2025/02/05 04:49:51 by fdi-tria          #+#    #+#             */
+/*   Updated: 2025/02/05 04:49:53 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-int    handle_keypress(int keycode, t_game *game)
+void    render_collectibles(t_game *game)
 {
-    if (keycode == KEY_ESC)
-        handle_close(game);
-    else if (keycode == KEY_W || keycode == KEY_A || 
-             keycode == KEY_S || keycode == KEY_D)
+    int    x;
+    int    y;
+
+    y = 0;
+    while (y < game->map->height)
     {
-        handle_player_movement(game, keycode);
-        render_game(game);
+        x = 0;
+        while (x < game->map->width)
+        {
+            if (game->map->grid[y][x] == 'C')
+                mlx_put_image_to_window(game->mlx, game->win,
+                    game->collectible.img,
+                    x * SPRITE_SIZE, y * SPRITE_SIZE);
+            x++;
+        }
+        y++;
     }
-    return (0);
 }

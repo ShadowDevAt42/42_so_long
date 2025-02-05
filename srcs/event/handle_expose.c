@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 04:13:18 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 04:23:37 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/05 04:40:40 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int    handle_expose(t_game *game)
 {
-    render_walls(game);
-    render_player(game);
+    render_game(game);
     return (0);
 }
