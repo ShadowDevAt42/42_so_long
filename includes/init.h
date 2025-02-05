@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 02:05:46 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 04:51:07 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/05 05:05:50 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,8 @@ t_error    init_collectible(t_game *game);
 
 /* init_exit.c */
 t_error    init_exit(t_game *game);
+
+/* init_exit_open.c*/
+t_error init_exit_open(t_game *game);
 
 #endif

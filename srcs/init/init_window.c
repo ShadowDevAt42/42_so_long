@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 04:01:05 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 04:36:24 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/05 05:09:17 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ t_game  *init_window(t_map *map)
     }
     game->map = map;
 	game->moves = 0;
+	game->collected = 0;
+	game->on_exit = 0;
     game->mlx = mlx_init();
     if (!game->mlx)
     {

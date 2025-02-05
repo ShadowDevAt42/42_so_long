@@ -6,9 +6,11 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 04:50:06 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 04:50:12 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/05 04:59:56 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../../includes/so_long.h"
 
 #include "../../includes/so_long.h"
 
@@ -24,9 +26,16 @@ void    render_exit(t_game *game)
         while (x < game->map->width)
         {
             if (game->map->grid[y][x] == 'E')
-                mlx_put_image_to_window(game->mlx, game->win,
-                    game->exit.img,
-                    x * SPRITE_SIZE, y * SPRITE_SIZE);
+            {
+                if (game->collected == game->map->collectibles)
+                    mlx_put_image_to_window(game->mlx, game->win,
+                        game->exit_open.img,
+                        x * SPRITE_SIZE, y * SPRITE_SIZE);
+                else
+                    mlx_put_image_to_window(game->mlx, game->win,
+                        game->exit.img,
+                        x * SPRITE_SIZE, y * SPRITE_SIZE);
+            }
             x++;
         }
         y++;

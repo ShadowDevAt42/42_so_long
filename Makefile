@@ -43,6 +43,7 @@ SRCS = $(SRC_DIR)main.c \
 	$(SRC_DIR)$(INIT_DIR)init_player.c \
 	$(SRC_DIR)$(INIT_DIR)init_collectible.c \
 	$(SRC_DIR)$(INIT_DIR)init_exit.c \
+	$(SRC_DIR)$(INIT_DIR)init_exit_open.c \
 	$(SRC_DIR)$(EVENT_DIR)handle_close.c \
 	$(SRC_DIR)$(EVENT_DIR)handle_expose.c \
 	$(SRC_DIR)$(EVENT_DIR)handle_keypress.c \
