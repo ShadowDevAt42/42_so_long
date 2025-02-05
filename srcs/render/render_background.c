@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   render_background.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 04:39:55 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 05:42:13 by fdi-tria         ###   ########.fr       */
+/*   Created: 2025/02/05 05:41:45 by fdi-tria          #+#    #+#             */
+/*   Updated: 2025/02/05 05:41:51 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-void    render_game(t_game *game)
+void    render_background(t_game *game)
 {
-    mlx_clear_window(game->mlx, game->win);
-    render_background(game);  // Ajout du render background en premier
-    render_walls(game);
-    render_collectibles(game);
-    render_exit(game);
-    render_player(game);
+    int    x;
+    int    y;
+
+    y = 0;
+    while (y < game->map->height)
+    {
+        x = 0;
+        while (x < game->map->width)
+        {
+            if (game->map->grid[y][x] == '0')
+                mlx_put_image_to_window(game->mlx, game->win,
+                    game->background.img,
+                    x * SPRITE_SIZE, y * SPRITE_SIZE);
+            x++;
+        }
+        y++;
+    }
 }

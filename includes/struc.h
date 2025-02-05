@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 01:14:40 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 05:08:11 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/05 05:40:57 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,6 +150,7 @@ typedef struct s_game {
 	t_img   collectible;
     t_img   exit;
 	t_img   exit_open;
+	t_img   background;
     t_map   *map;
 	int     moves;
 	int     collected;

@@ -1,7 +1,7 @@
 /* XPM */
 static char * anim05_xpm[] = {
 "64 64 636 2",
-"  	c None",
+"  	c #1981b2",
 ". 	c #7B636C",
 "+ 	c #79606B",
 "@ 	c #725B68",

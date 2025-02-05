@@ -44,12 +44,14 @@ SRCS = $(SRC_DIR)main.c \
 	$(SRC_DIR)$(INIT_DIR)init_collectible.c \
 	$(SRC_DIR)$(INIT_DIR)init_exit.c \
 	$(SRC_DIR)$(INIT_DIR)init_exit_open.c \
+	$(SRC_DIR)$(INIT_DIR)init_background.c \
 	$(SRC_DIR)$(EVENT_DIR)handle_close.c \
 	$(SRC_DIR)$(EVENT_DIR)handle_expose.c \
 	$(SRC_DIR)$(EVENT_DIR)handle_keypress.c \
 	$(SRC_DIR)$(EVENT_DIR)setup_hooks.c \
 	$(SRC_DIR)$(PLAYER_DIR)player_movement.c \
 	$(SRC_DIR)$(RENDER_DIR)render_wall.c \
+	$(SRC_DIR)$(RENDER_DIR)render_background.c \
 	$(SRC_DIR)$(RENDER_DIR)render_player.c \
 	$(SRC_DIR)$(RENDER_DIR)render_collectible.c \
 	$(SRC_DIR)$(RENDER_DIR)render_exit.c \
