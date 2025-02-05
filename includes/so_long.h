@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 22:39:36 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 04:03:44 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/05 04:14:29 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "error.h"
 # include "map.h"
 # include "render.h"
+# include "event.h"
 # include "../libs/libft/includes/libft.h"
 # include "../libs/minilibx-linux/mlx.h"
 # include <fcntl.h>

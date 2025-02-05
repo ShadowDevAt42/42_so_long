@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 04:01:05 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 04:01:14 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/05 04:14:16 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,6 @@ t_game  *init_window(t_map *map)
         free_window(game);
         return (NULL);
     }
-    mlx_hook(game->win, 17, 0, close_window, game);
+    setup_hooks(game);  // Ajout de cette ligne
     return (game);
 }

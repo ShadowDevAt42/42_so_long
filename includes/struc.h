@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 01:14:40 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 03:22:28 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/05 04:21:21 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,7 @@ typedef struct s_game {
     void    *mlx;
     void    *win;
     t_img   wall;
+	t_img   player;
     t_map   *map;
 }   t_game;
 

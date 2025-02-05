@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 02:05:46 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 04:00:50 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/05 04:23:16 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,8 @@ void    free_sprites(t_game *game);
 
 /* init_wall.c */
 t_error init_wall(t_game *game);
+
+/*init_player.c*/
+t_error init_player(t_game *game);
 
 #endif

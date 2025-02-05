@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.h                                           :+:      :+:    :+:   */
+/*   render_player.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 04:02:58 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 04:22:42 by fdi-tria         ###   ########.fr       */
+/*   Created: 2025/02/05 04:22:23 by fdi-tria          #+#    #+#             */
+/*   Updated: 2025/02/05 04:22:29 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RENDER_H
-# define RENDER_H
+#include "../../includes/so_long.h"
 
-# include "struc.h"
-
-void    render_walls(t_game *game);
-void    render_player(t_game *game);
-
-#endif
+void    render_player(t_game *game)
+{
+    mlx_put_image_to_window(game->mlx, game->win, game->player.img,
+        game->map->player_x * SPRITE_SIZE,
+        game->map->player_y * SPRITE_SIZE);
+}
