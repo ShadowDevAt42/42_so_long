@@ -33,6 +33,7 @@ INIT_DIR = init/
 RENDER_DIR = render/
 EVENT_DIR = event/
 PLAYER_DIR = player/
+ANIM_DIR = anim/
 
 # Source files
 SRCS = $(SRC_DIR)main.c \
@@ -43,7 +44,6 @@ SRCS = $(SRC_DIR)main.c \
 	$(SRC_DIR)$(INIT_DIR)init_player.c \
 	$(SRC_DIR)$(INIT_DIR)init_collectible.c \
 	$(SRC_DIR)$(INIT_DIR)init_exit.c \
-	$(SRC_DIR)$(INIT_DIR)init_exit_open.c \
 	$(SRC_DIR)$(INIT_DIR)init_corner.c \
 	$(SRC_DIR)$(INIT_DIR)init_background.c \
 	$(SRC_DIR)$(EVENT_DIR)handle_close.c \
@@ -64,7 +64,8 @@ SRCS = $(SRC_DIR)main.c \
 	$(SRC_DIR)$(MAP_DIR)map_load.c \
 	$(SRC_DIR)$(MAP_DIR)map_validate_path.c \
 	$(SRC_DIR)$(MAP_DIR)map_validator.c \
-	$(SRC_DIR)$(ERROR_DIR)error_handler.c
+	$(SRC_DIR)$(ERROR_DIR)error_handler.c \
+	$(SRC_DIR)$(ANIM_DIR)portal_anim.c
 
 # Object files with new directory
 OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
@@ -76,7 +77,8 @@ OBJ_DIRS = $(OBJ_DIR) \
 	$(OBJ_DIR)$(INIT_DIR) \
 	$(OBJ_DIR)$(RENDER_DIR) \
 	$(OBJ_DIR)$(EVENT_DIR) \
-	$(OBJ_DIR)$(PLAYER_DIR)
+	$(OBJ_DIR)$(PLAYER_DIR) \
+	$(OBJ_DIR)$(ANIM_DIR)
 
 # Header files
 INCLUDES	= -I./includes -I$(LIBFT_PATH)/includes -I$(MLX_PATH)

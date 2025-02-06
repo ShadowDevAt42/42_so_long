@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 04:49:18 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 17:48:51 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/06 03:42:15 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ t_error	init_exit(t_game *game)
 	}
 	game->exit.width = width;
 	game->exit.height = height;
-	return (ERR_NONE);
+	return (init_portal_anim(game));
 }

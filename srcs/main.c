@@ -6,11 +6,48 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 23:13:32 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 17:27:57 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/06 04:15:35 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
+
+static void	render_portal_if_needed(t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < game->map->height)
+	{
+		j = 0;
+		while (j < game->map->width)
+		{
+			if (game->map->grid[i][j] == 'E' && 
+				(game->portal.is_animating || game->portal.is_open))
+				render_portal(game, j, i);
+			j++;
+		}
+		i++;
+	}
+}
+
+int	render_next_frame(void *param)
+{
+	static int	frame_counter = 0;
+	t_game		*game;
+
+	game = (t_game *)param;
+	frame_counter++;
+	if (frame_counter >= PORTAL_ANIM_SPEED)
+	{
+		frame_counter = 0;
+		update_portal_anim(game);
+		if (game->portal.is_animating || game->portal.is_open)
+			render_portal_if_needed(game);
+	}
+	return (0);
+}
 
 int	main(int argc, char **argv)
 {
@@ -37,6 +74,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	render_game(game);
+	mlx_loop_hook(game->mlx, render_next_frame, game);
 	mlx_loop(game->mlx);
 	return (0);
 }

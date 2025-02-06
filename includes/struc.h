@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 01:14:40 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/06 01:11:54 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/06 04:15:08 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,14 @@ typedef struct s_corner
 	t_img	bottom_right;
 }	t_corner;
 
+typedef struct s_portal_anim
+{
+	t_img	frames[8];
+	int		current_frame;
+	int		is_animating;
+	int		is_open;
+}	t_portal_anim;
+
 typedef struct s_game
 {
 	void	*mlx;
@@ -91,6 +99,7 @@ typedef struct s_game
 	t_img	background;
 	t_map	*map;
 	t_corner	corner;
+	t_portal_anim	portal;
 	int		moves;
 	int		collected;
 	int		on_exit;
