@@ -6,14 +6,14 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 02:09:00 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 18:12:55 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:38:33 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAP_H
 # define MAP_H
 
-# include "struc.h"
+// # include "struc.h"
 
 t_error		validate_all(char *map_path, t_map **map);
 t_error		validate_map_file(char *map_path, t_map **map);

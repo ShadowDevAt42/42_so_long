@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 04:35:34 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 17:37:02 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/07 00:06:02 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	check_exit(t_game *game, int x, int y)
 		if (game->collected == game->map->collectibles)
 		{
 			ft_printf("\nCongratulations! You won in %d moves!\n", game->moves);
-			handle_close(game);
+			close_window(game);
 		}
 		game->on_exit = 1;
 	}

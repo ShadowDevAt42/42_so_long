@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 01:14:40 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/06 04:33:49 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/07 00:23:17 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,15 @@ typedef enum e_error
 	ERR_WIN_INIT,
 	ERR_SPRITE_LOAD,
 	ERR_IMG_CREATE,
-	ERR_SPRITE_PATH
+	ERR_SPRITE_PATH,
+	ERR_CUSTOM
 }	t_error;
+
+typedef struct s_error_msg
+{
+	t_error	code;
+	char	*message;
+}	t_error_msg;
 
 typedef struct s_error_info
 {
@@ -77,7 +84,7 @@ typedef struct s_corner
 
 typedef struct s_portal_anim
 {
-	t_img	frames[8];
+	t_img	frames[6];
 	int		current_frame;
 	int		is_animating;
 	int		is_open;
@@ -102,6 +109,10 @@ typedef struct s_game
 	t_img		player;
 	t_img		exit;
 	t_img		background;
+	t_img		ui_one;
+	t_img		ui_two;
+	t_img		ui_coll_one;
+	t_img		ui_coll_two;
 	t_map		*map;
 	t_corner	corner;
 	t_portal_anim	portal;
