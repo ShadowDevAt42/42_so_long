@@ -44,6 +44,7 @@ SRCS = $(SRC_DIR)main.c \
 	$(SRC_DIR)$(INIT_DIR)init_collectible.c \
 	$(SRC_DIR)$(INIT_DIR)init_exit.c \
 	$(SRC_DIR)$(INIT_DIR)init_exit_open.c \
+	$(SRC_DIR)$(INIT_DIR)init_corner.c \
 	$(SRC_DIR)$(INIT_DIR)init_background.c \
 	$(SRC_DIR)$(EVENT_DIR)handle_close.c \
 	$(SRC_DIR)$(EVENT_DIR)handle_expose.c \
@@ -55,6 +56,7 @@ SRCS = $(SRC_DIR)main.c \
 	$(SRC_DIR)$(RENDER_DIR)render_player.c \
 	$(SRC_DIR)$(RENDER_DIR)render_collectible.c \
 	$(SRC_DIR)$(RENDER_DIR)render_exit.c \
+	$(SRC_DIR)$(RENDER_DIR)render_corner.c \
 	$(SRC_DIR)$(RENDER_DIR)render.c \
 	$(SRC_DIR)$(MAP_DIR)map_validate_basic.c \
 	$(SRC_DIR)$(MAP_DIR)map_validate_elements.c \

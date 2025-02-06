@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 01:14:40 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/05 18:16:58 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/06 01:05:30 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,17 +67,28 @@ typedef struct s_img
 	int		height;
 }	t_img;
 
+typedef struct s_corner
+{
+	t_img	top_left;
+	t_img	top_right;
+	t_img	bottom_left;
+	t_img	bottom_right;
+}	t_corner;
+
 typedef struct s_game
 {
 	void	*mlx;
 	void	*win;
 	t_img	wall;
+	t_img	wall_top;
+	t_img	wall_bottom;
 	t_img	player;
 	t_img	collectible;
 	t_img	exit;
 	t_img	exit_open;
 	t_img	background;
 	t_map	*map;
+	t_corner	corner;
 	int		moves;
 	int		collected;
 	int		on_exit;
