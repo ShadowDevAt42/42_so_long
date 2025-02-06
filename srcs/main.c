@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 23:13:32 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/06 04:15:35 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/06 04:35:10 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,26 @@ static void	render_portal_if_needed(t_game *game)
 
 int	render_next_frame(void *param)
 {
-	static int	frame_counter = 0;
+	static int	portal_counter = 0;
+	static int	coin_counter = 0;
 	t_game		*game;
 
 	game = (t_game *)param;
-	frame_counter++;
-	if (frame_counter >= PORTAL_ANIM_SPEED)
+	portal_counter++;
+	coin_counter++;
+
+	if (portal_counter >= PORTAL_ANIM_SPEED)
 	{
-		frame_counter = 0;
+		portal_counter = 0;
 		update_portal_anim(game);
 		if (game->portal.is_animating || game->portal.is_open)
 			render_portal_if_needed(game);
+	}
+	if (coin_counter >= COIN_ANIM_SPEED)
+	{
+		coin_counter = 0;
+		update_coin_anim(game);
+		render_collectibles(game);
 	}
 	return (0);
 }

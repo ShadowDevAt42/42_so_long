@@ -65,7 +65,8 @@ SRCS = $(SRC_DIR)main.c \
 	$(SRC_DIR)$(MAP_DIR)map_validate_path.c \
 	$(SRC_DIR)$(MAP_DIR)map_validator.c \
 	$(SRC_DIR)$(ERROR_DIR)error_handler.c \
-	$(SRC_DIR)$(ANIM_DIR)portal_anim.c
+	$(SRC_DIR)$(ANIM_DIR)portal_anim.c \
+	$(SRC_DIR)$(ANIM_DIR)coins_anim.c
 
 # Object files with new directory
 OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)

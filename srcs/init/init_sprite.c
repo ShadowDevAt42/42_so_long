@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 04:01:30 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/06 03:45:06 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/06 04:38:47 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ static void	free_gameplay_elements(t_game *game)
 {
 	if (game->player.img)
 		mlx_destroy_image(game->mlx, game->player.img);
-	if (game->collectible.img)
-		mlx_destroy_image(game->mlx, game->collectible.img);
 	if (game->exit.img)
 		mlx_destroy_image(game->mlx, game->exit.img);
 }
@@ -63,6 +61,19 @@ static void	free_portal_frames(t_game *game)
 	}
 }
 
+void	free_coin_frames(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (i < 9)
+	{
+		if (game->coin.frames[i].img)
+			mlx_destroy_image(game->mlx, game->coin.frames[i].img);
+		i++;
+	}
+}
+
 void	free_sprites(t_game *game)
 {
 	if (!game || !game->mlx)
@@ -71,6 +82,7 @@ void	free_sprites(t_game *game)
 	free_gameplay_elements(game);
 	free_corner_elements(game);
 	free_portal_frames(game);
+	free_coin_frames(game);
 }
 
 static t_error	init_game_elements(t_game *game)
@@ -80,7 +92,7 @@ static t_error	init_game_elements(t_game *game)
 	error = init_player(game);
 	if (error != ERR_NONE)
 		return (error);
-	error = init_collectible(game);
+	error = init_coin_anim(game);
 	if (error != ERR_NONE)
 		return (error);
 	error = init_exit(game);

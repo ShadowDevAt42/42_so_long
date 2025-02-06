@@ -1,7 +1,7 @@
 /* XPM */
 static char * coins7_xpm[] = {
 "64 64 335 2",
-"  	c None",
+"  	c #87CEEB",
 ". 	c #000000",
 "+ 	c #857A30",
 "@ 	c #8B8032",

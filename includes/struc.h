@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 01:14:40 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/06 04:15:08 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/06 04:33:49 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,26 +83,32 @@ typedef struct s_portal_anim
 	int		is_open;
 }	t_portal_anim;
 
+typedef struct s_coin_anim
+{
+	t_img	frames[9];
+	int		current_frame;
+	int		is_animating;
+}	t_coin_anim;
+
 typedef struct s_game
 {
-	void	*mlx;
-	void	*win;
-	t_img	wall;
-	t_img	wall_top;
-	t_img	wall_bottom;
-	t_img	wall_left;
-	t_img	wall_right;
-	t_img	player;
-	t_img	collectible;
-	t_img	exit;
-	t_img	exit_open;
-	t_img	background;
-	t_map	*map;
+	void		*mlx;
+	void		*win;
+	t_img		wall;
+	t_img		wall_top;
+	t_img		wall_bottom;
+	t_img		wall_left;
+	t_img		wall_right;
+	t_img		player;
+	t_img		exit;
+	t_img		background;
+	t_map		*map;
 	t_corner	corner;
 	t_portal_anim	portal;
-	int		moves;
-	int		collected;
-	int		on_exit;
+	t_coin_anim	coin;    // Nouvelle structure pour l'animation des pièces
+	int			moves;
+	int			collected;
+	int			on_exit;
 }	t_game;
 
 #endif
