@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 04:01:54 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/06 01:05:57 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/06 01:12:04 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,14 @@ t_error	init_wall(t_game *game)
 		return (error);
 
 	error = load_wall_sprite(game, &game->wall_bottom, "srcs/assets/wall/bottom.xpm");
+	if (error != ERR_NONE)
+		return (error);
+
+	error = load_wall_sprite(game, &game->wall_left, "srcs/assets/wall/wall_l.xpm");
+	if (error != ERR_NONE)
+		return (error);
+
+	error = load_wall_sprite(game, &game->wall_right, "srcs/assets/wall/wall_r.xpm");
 	if (error != ERR_NONE)
 		return (error);
 

@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 04:02:22 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/06 01:08:03 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/06 01:13:27 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,11 @@ void	render_walls(t_game *game)
 					render_wall_at(game, x, y, &game->wall_top);
 				else if (y == game->map->height - 1)  // Bottom row
 					render_wall_at(game, x, y, &game->wall_bottom);
-				else  // Middle rows
+				else if (x == 0)  // Left wall
+					render_wall_at(game, x, y, &game->wall_left);
+				else if (x == game->map->width - 1)  // Right wall
+					render_wall_at(game, x, y, &game->wall_right);
+				else  // Middle walls
 					render_wall_at(game, x, y, &game->wall);
 			}
 			x++;

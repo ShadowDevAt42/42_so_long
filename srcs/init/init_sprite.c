@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 04:01:30 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/06 01:07:06 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/06 01:12:16 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ void	free_sprites(t_game *game)
 		mlx_destroy_image(game->mlx, game->wall_top.img);
 	if (game->wall_bottom.img)
 		mlx_destroy_image(game->mlx, game->wall_bottom.img);
+	if (game->wall_left.img)
+		mlx_destroy_image(game->mlx, game->wall_left.img);
+	if (game->wall_right.img)
+		mlx_destroy_image(game->mlx, game->wall_right.img);
 	if (game->player.img)
 		mlx_destroy_image(game->mlx, game->player.img);
 	if (game->collectible.img)
