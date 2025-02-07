@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 10:56:00 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 11:21:57 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/07 11:25:22 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,19 +78,20 @@ static int	bfs_distance(t_map *map, t_point start, t_point target)
 	int				dx[] = {-1, 1, 0, 0};
 	int				dy[] = {0, 0, -1, 1};
 	int				i;
+	int				j;
 	int				new_x;
 	int				new_y;
 	t_queue_node	*current;
 	int				distance;
 
 	queue = NULL;
-	visited = ft_calloc(map->height, sizeof(int *));
+	visited = malloc(sizeof(int *) * map->height);
 	if (!visited)
 		return (-1);
 	i = -1;
 	while (++i < map->height)
 	{
-		visited[i] = ft_calloc(map->width, sizeof(int));
+		visited[i] = malloc(sizeof(int) * map->width);
 		if (!visited[i])
 		{
 			while (--i >= 0)
@@ -98,7 +99,11 @@ static int	bfs_distance(t_map *map, t_point start, t_point target)
 			free(visited);
 			return (-1);
 		}
+		j = -1;
+		while (++j < map->width)
+			visited[i][j] = 0;
 	}
+	ft_printf("Debug: BFS from (%d,%d) to (%d,%d)\n", start.x, start.y, target.x, target.y);
 	enqueue(&queue, start.x, start.y, 0);
 	visited[start.y][start.x] = 1;
 	distance = -1;

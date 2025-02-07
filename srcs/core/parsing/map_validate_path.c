@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 00:13:22 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 10:58:36 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/07 11:44:20 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ int	validate_path(t_map *map)
 {
 	char	**visited;
 	int		valid;
-	int		has_shortest_path;
 
 	visited = allocate_visited(map);
 	if (!visited)
@@ -83,6 +82,6 @@ int	validate_path(t_map *map)
 	free_visited(visited, map->height);
 	if (!valid)
 		return (0);
-	has_shortest_path = find_shortest_valid_path(map);
-	return (has_shortest_path);
+	map->optimal_path = find_shortest_valid_path(map);
+	return (map->optimal_path != -1);
 }
