@@ -34,6 +34,7 @@ CORE_INIT_DIR = core/init/
 CORE_FREE_DIR = core/free/
 CORE_GAMEPLAY_DIR = core/gameplay/
 CORE_ANIM_DIR = core/anim/
+CORE_PATHFINDING_DIR = core/pathfinding/
 ERROR_DIR = error/
 
 # Source files
@@ -57,7 +58,12 @@ SRCS = $(SRC_DIR)main.c \
 	$(SRC_DIR)$(CORE_PARSING_DIR)map_load.c \
 	$(SRC_DIR)$(CORE_PARSING_DIR)map_validate_path.c \
 	$(SRC_DIR)$(CORE_PARSING_DIR)map_validator.c \
-	$(SRC_DIR)$(CORE_PARSING_DIR)map_pathfinding.c \
+	$(SRC_DIR)$(CORE_PATHFINDING_DIR)queue_operations.c \
+	$(SRC_DIR)$(CORE_PATHFINDING_DIR)bfs_utils.c \
+	$(SRC_DIR)$(CORE_PATHFINDING_DIR)distance_matrix.c \
+	$(SRC_DIR)$(CORE_PATHFINDING_DIR)dp_solver.c \
+	$(SRC_DIR)$(CORE_PATHFINDING_DIR)point_collector.c \
+	$(SRC_DIR)$(CORE_PATHFINDING_DIR)pathfinding.c \
 	$(SRC_DIR)$(ERROR_DIR)error_handler.c \
 	$(SRC_DIR)$(CORE_ANIM_DIR)update_anim.c \
 	$(SRC_DIR)$(CORE_GAMEPLAY_DIR)player.c \
@@ -75,7 +81,8 @@ OBJ_DIRS = $(OBJ_DIR) \
 	$(OBJ_DIR)$(CORE_INIT_DIR) \
 	$(OBJ_DIR)$(CORE_FREE_DIR) \
 	$(OBJ_DIR)$(CORE_GAMEPLAY_DIR) \
-	$(OBJ_DIR)$(CORE_ANIM_DIR)
+	$(OBJ_DIR)$(CORE_ANIM_DIR) \
+	$(OBJ_DIR)$(CORE_PATHFINDING_DIR)
 
 # Header files
 INCLUDES	= -I./includes -I$(LIBFT_PATH)/includes -I$(MLX_PATH)

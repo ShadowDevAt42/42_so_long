@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 22:39:36 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 10:49:31 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:19:08 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@
 # define KEY_A 97
 # define KEY_S 115
 # define KEY_D 100
+# define MAX_INT 2147483647
 
 #endif

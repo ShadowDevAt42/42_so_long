@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 01:14:40 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 11:32:56 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:19:03 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,20 @@ typedef struct s_error_info
 	char	*sprite_path;
 	char	*additional_info;
 }	t_error_info;
+
+typedef struct s_point
+{
+	int	x;
+	int	y;
+}	t_point;
+
+typedef struct s_queue_node
+{
+	int					x;
+	int					y;
+	int					dist;
+	struct s_queue_node	*next;
+}	t_queue_node;
 
 typedef struct s_map
 {

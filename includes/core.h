@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:32:59 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 10:58:21 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:26:08 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,32 @@ void	flood_fill(t_map *map, char **visited, int x, int y);
 int	check_reachable_elements(t_map *map, char **visited);
 int	validate_path(t_map *map);
 
-// core/parsing/map_pathfinding.c
-int	find_shortest_valid_path(t_map *map);
+// core/pathfinding/queue_operations.c
+t_queue_node	*create_node(int x, int y, int dist);
+void			enqueue(t_queue_node **queue, int x, int y, int dist);
+t_queue_node	*dequeue(t_queue_node **queue);
+
+// core/pathfinding/bfs_utils.c
+int		**init_visited_array(t_map *map);
+void	cleanup_bfs(t_queue_node **queue, int **visited, int height);
+int		process_neighbors(t_map *map, t_queue_node *current,
+			int **visited, t_queue_node **queue);
+int		bfs_distance(t_map *map, t_point start, t_point target);
+
+// core/pathfinding/distance_matrix.c
+void	cleanup_matrix(int **matrix, int size);
+void	print_distance_matrix(int **dist_matrix, int nb_points);
+int		**compute_distance_matrix(t_map *map, t_point *nodes, int nb_nodes);
+
+// core/pathfinding/dp_solver.c
+int		tsp_dp(int **dist, int nb_nodes);
+
+// core/pathfinding/point_collector.c
+t_point	*collect_important_points(t_map *map, int *nb_points);
+void	print_debug_points(t_point *points, int nb_points);
+
+// core/pathfinding/pathfinding.c
+int		find_shortest_valid_path(t_map *map);
 
 // core/parsing/map_validator.c
 t_error	validate_map_file(char *map_path, t_map **map);
