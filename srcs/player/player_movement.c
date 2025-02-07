@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 04:35:34 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 00:06:02 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/07 00:52:50 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ static void	check_collectible(t_game *game, int x, int y)
 	if (game->map->grid[y][x] == 'C')
 	{
 		game->collected++;
-		ft_printf("Collectibles: %d/%d\n", game->collected,
-			game->map->collectibles);
 	}
 }
 
