@@ -60,8 +60,10 @@ SRCS = $(SRC_DIR)main.c \
 	$(SRC_DIR)$(CORE_PARSING_DIR)map_validator.c \
 	$(SRC_DIR)$(CORE_PATHFINDING_DIR)queue_operations.c \
 	$(SRC_DIR)$(CORE_PATHFINDING_DIR)bfs_utils.c \
+	$(SRC_DIR)$(CORE_PATHFINDING_DIR)bfs_core.c \
 	$(SRC_DIR)$(CORE_PATHFINDING_DIR)distance_matrix.c \
 	$(SRC_DIR)$(CORE_PATHFINDING_DIR)dp_solver.c \
+	$(SRC_DIR)$(CORE_PATHFINDING_DIR)dp_utils.c \
 	$(SRC_DIR)$(CORE_PATHFINDING_DIR)point_collector.c \
 	$(SRC_DIR)$(CORE_PATHFINDING_DIR)pathfinding.c \
 	$(SRC_DIR)$(ERROR_DIR)error_handler.c \

@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 12:22:00 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 12:22:17 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:44:59 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,6 @@ void	cleanup_matrix(int **matrix, int size)
 	while (--size >= 0)
 		free(matrix[size]);
 	free(matrix);
-}
-
-void	print_distance_matrix(int **dist_matrix, int nb_points)
-{
-	int	i;
-	int	j;
-
-	ft_printf("Debug: Distance matrix:\n");
-	i = -1;
-	while (++i < nb_points)
-	{
-		j = -1;
-		while (++j < nb_points)
-			ft_printf("%3d ", dist_matrix[i][j]);
-		ft_printf("\n");
-	}
 }
 
 int	**compute_distance_matrix(t_map *map, t_point *nodes, int nb_nodes)

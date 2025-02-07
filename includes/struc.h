@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 01:14:40 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 12:42:43 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/07 13:04:29 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,14 @@ typedef struct s_point
 	int	y;
 }	t_point;
 
+typedef struct s_queue_node
+{
+	int					x;
+	int					y;
+	int					dist;
+	struct s_queue_node	*next;
+}	t_queue_node;
+
 typedef struct s_dp_state
 {
 	int	**dp;
@@ -66,21 +74,12 @@ typedef struct s_dp_state
 	int	nb_nodes;
 }	t_dp_state;
 
-
 typedef struct s_bfs_data
 {
 	t_queue_node	*queue;
-	int			**visited;
-	int			distance;
+	int				**visited;
+	int				distance;
 }	t_bfs_data;
-
-typedef struct s_queue_node
-{
-	int					x;
-	int					y;
-	int					dist;
-	struct s_queue_node	*next;
-}	t_queue_node;
 
 typedef struct s_map
 {

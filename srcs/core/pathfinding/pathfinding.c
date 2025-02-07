@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 12:23:00 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 12:23:00 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:45:12 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,14 @@ int	find_shortest_valid_path(t_map *map)
 
 	points = collect_important_points(map, &nb_points);
 	if (!points)
-	{
-		ft_printf("Debug: Failed to collect points\n");
 		return (-1);
-	}
-	print_debug_points(points, nb_points);
 	dist_matrix = compute_distance_matrix(map, points, nb_points);
 	if (!dist_matrix)
 	{
-		ft_printf("Debug: Failed to compute distance matrix\n");
 		free(points);
 		return (-1);
 	}
-	print_distance_matrix(dist_matrix, nb_points);
 	shortest_path = tsp_dp(dist_matrix, nb_points);
-	ft_printf("Debug: TSP returned path length: %d\n", shortest_path);
 	free(points);
 	cleanup_matrix(dist_matrix, nb_points);
 	return (shortest_path);

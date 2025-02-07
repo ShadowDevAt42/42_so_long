@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:07:18 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 11:45:28 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/07 13:05:12 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static t_game	*init_game_struct(t_map *map)
 	game->moves = 0;
 	game->collected = 0;
 	game->on_exit = 0;
-	game->optimal_path = map->optimal_path; // Use already calculated path
+	game->optimal_path = map->optimal_path;
 	game->mlx = mlx_init();
 	if (!game->mlx)
 	{
