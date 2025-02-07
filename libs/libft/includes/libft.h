@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 14:17:27 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 12:29:51 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:36:36 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <unistd.h>
 # include <stddef.h>
 # include <stdarg.h>
+
+# define BUFFER_SIZE 1024
 
 typedef struct s_fd_list
 {

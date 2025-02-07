@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 12:22:00 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 12:22:36 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:34:40 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,64 +49,70 @@ static void	init_base_cases(int **dp, int **dist, int num_collect)
 			dp[1 << (i - 1)][i] = dist[0][i];
 }
 
-static void	process_state(int **dp, int **dist, int mask,
-	int num_collect)
+static void	process_state(t_dp_state *state, int mask)
 {
 	int	i;
 	int	j;
 	int	next_mask;
 
 	i = 0;
-	while (++i <= num_collect)
+	while (++i <= state->num_collect)
 	{
 		if (!(mask & (1 << (i - 1))))
 			continue ;
 		j = 0;
-		while (++j <= num_collect)
+		while (++j <= state->num_collect)
 		{
 			if (mask & (1 << (j - 1)))
 				continue ;
 			next_mask = mask | (1 << (j - 1));
-			if (dp[mask][i] != MAX_INT && dist[i][j] != -1)
-				dp[next_mask][j] = ft_min(dp[next_mask][j],
-						dp[mask][i] + dist[i][j]);
+			if (state->dp[mask][i] != MAX_INT && state->dist[i][j] != -1)
+				state->dp[next_mask][j] = ft_min(state->dp[next_mask][j],
+						state->dp[mask][i] + state->dist[i][j]);
 		}
 	}
 }
 
-static int	find_best_path(int **dp, int **dist, int all_mask,
-	int num_collect, int nb_nodes)
+static int	find_best_path(t_dp_state *state)
 {
 	int	best;
 	int	i;
 
 	best = MAX_INT;
 	i = 0;
-	while (++i <= num_collect)
-		if (dp[all_mask][i] != MAX_INT && dist[i][nb_nodes - 1] != -1)
-			best = ft_min(best, dp[all_mask][i] + dist[i][nb_nodes - 1]);
+	while (++i <= state->num_collect)
+		if (state->dp[state->all_mask][i] != MAX_INT
+			&& state->dist[i][state->nb_nodes - 1] != -1)
+			best = ft_min(best,
+					state->dp[state->all_mask][i]
+					+ state->dist[i][state->nb_nodes - 1]);
 	return (best);
+}
+
+static void	init_dp_state(t_dp_state *state, int **dist, int nb_nodes)
+{
+	state->dist = dist;
+	state->nb_nodes = nb_nodes;
+	state->num_collect = nb_nodes - 2;
+	state->all_mask = (1 << state->num_collect) - 1;
+	state->dp = init_dp_array(state->all_mask, state->num_collect);
 }
 
 int	tsp_dp(int **dist, int nb_nodes)
 {
-	int	num_collect;
-	int	all_mask;
-	int	**dp;
-	int	mask;
-	int	best;
+	t_dp_state	state;
+	int			mask;
+	int			best;
 
-	num_collect = nb_nodes - 2;
-	all_mask = (1 << num_collect) - 1;
-	dp = init_dp_array(all_mask, num_collect);
-	if (!dp)
+	init_dp_state(&state, dist, nb_nodes);
+	if (!state.dp)
 		return (-1);
-	init_base_cases(dp, dist, num_collect);
+	init_base_cases(state.dp, dist, state.num_collect);
 	mask = -1;
-	while (++mask <= all_mask)
-		process_state(dp, dist, mask, num_collect);
-	best = find_best_path(dp, dist, all_mask, num_collect, nb_nodes);
-	cleanup_matrix(dp, all_mask + 1);
+	while (++mask <= state.all_mask)
+		process_state(&state, mask);
+	best = find_best_path(&state);
+	cleanup_matrix(state.dp, state.all_mask + 1);
 	if (best == MAX_INT)
 		return (-1);
 	return (best);
