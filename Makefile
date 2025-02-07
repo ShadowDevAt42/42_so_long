@@ -30,7 +30,7 @@ OBJ_DIR = objs/
 CORE_DIR = core/
 MAP_DIR = map/
 ERROR_DIR = error/
-RENDER_DIR = render/
+CORE_RENDER_DIR = core/render/
 CORE_DIR = core/
 CORE_INIT_DIR = core/init/
 CORE_FREE_DIR = core/free/
@@ -40,22 +40,18 @@ ANIM_DIR = anim/
 # Source files
 SRCS = $(SRC_DIR)main.c \
 	$(SRC_DIR)$(CORE_DIR)handle_event.c \
-	$(SRC_DIR)$(CORE_DIR)utils.c \
+	$(SRC_DIR)$(CORE_DIR)utils_init.c \
+	$(SRC_DIR)$(CORE_DIR)utils_render.c \
 	$(SRC_DIR)$(CORE_INIT_DIR)core.c \
 	$(SRC_DIR)$(CORE_INIT_DIR)static_assets.c \
 	$(SRC_DIR)$(CORE_INIT_DIR)anim_assets.c \
 	$(SRC_DIR)$(CORE_FREE_DIR)core.c \
 	$(SRC_DIR)$(CORE_FREE_DIR)static_assets.c \
 	$(SRC_DIR)$(CORE_FREE_DIR)anim_assets.c \
-	$(SRC_DIR)$(PLAYER_DIR)player_movement.c \
-	$(SRC_DIR)$(RENDER_DIR)render_wall.c \
-	$(SRC_DIR)$(RENDER_DIR)render_background.c \
-	$(SRC_DIR)$(RENDER_DIR)render_player.c \
-	$(SRC_DIR)$(RENDER_DIR)render_collectible.c \
-	$(SRC_DIR)$(RENDER_DIR)render_exit.c \
-	$(SRC_DIR)$(RENDER_DIR)render_corner.c \
-	$(SRC_DIR)$(RENDER_DIR)render_ui.c \
-	$(SRC_DIR)$(RENDER_DIR)render.c \
+	$(SRC_DIR)$(CORE_RENDER_DIR)render_static_elements.c \
+		$(SRC_DIR)$(CORE_RENDER_DIR)render_anim_elements.c \
+	$(SRC_DIR)$(CORE_RENDER_DIR)render_ui.c \
+	$(SRC_DIR)$(CORE_RENDER_DIR)render.c \
 	$(SRC_DIR)$(MAP_DIR)map_validate_basic.c \
 	$(SRC_DIR)$(MAP_DIR)map_validate_elements.c \
 	$(SRC_DIR)$(MAP_DIR)map_read.c \
@@ -64,7 +60,8 @@ SRCS = $(SRC_DIR)main.c \
 	$(SRC_DIR)$(MAP_DIR)map_validator.c \
 	$(SRC_DIR)$(ERROR_DIR)error_handler.c \
 	$(SRC_DIR)$(ANIM_DIR)portal_anim.c \
-	$(SRC_DIR)$(ANIM_DIR)coins_anim.c
+	$(SRC_DIR)$(ANIM_DIR)coins_anim.c \
+	$(SRC_DIR)$(PLAYER_DIR)player_movement.c
 
 # Object files with new directory
 OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
@@ -73,7 +70,7 @@ OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 OBJ_DIRS = $(OBJ_DIR) \
 	$(OBJ_DIR)$(MAP_DIR) \
 	$(OBJ_DIR)$(ERROR_DIR) \
-	$(OBJ_DIR)$(RENDER_DIR) \
+	$(OBJ_DIR)$(CORE_RENDER_DIR) \
 	$(OBJ_DIR)$(CORE_DIR) \
 	$(OBJ_DIR)$(CORE_INIT_DIR) \
 	$(OBJ_DIR)$(CORE_FREE_DIR) \

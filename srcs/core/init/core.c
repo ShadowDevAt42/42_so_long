@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:07:18 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/06 23:19:58 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/07 08:56:41 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,6 @@ t_map	*init_map(void)
 	if (!map)
 		return (NULL);
 	map->grid = NULL;
-	// map->width = 0;
-	// map->height = 0;
-	// map->collectibles = 0;
-	// map->exit = 0;
-	// map->player = 0;
 	map->player_x = -1;
 	map->player_y = -1;
 	return (map);
@@ -41,9 +36,6 @@ static t_game	*init_game_struct(t_map *map)
 		return (NULL);
 	}
 	game->map = map;
-	// game->moves = 0;
-	// game->collected = 0;
-	// game->on_exit = 0;
 	game->mlx = mlx_init();
 	if (!game->mlx)
 	{
@@ -61,8 +53,8 @@ t_game	*init_window(t_map *map)
 	game = init_game_struct(map);
 	if (!game)
 		return (NULL);
-	game->win = mlx_new_window(game->mlx,
-			map->width * SPRITE_SIZE, map->height * SPRITE_SIZE, "so_long");
+	game->win = mlx_new_window(game->mlx, map->width * SPRITE_SIZE,
+			map->height * SPRITE_SIZE, "so_long");
 	if (!game->win)
 	{
 		handle_error(ERR_WIN_INIT);
@@ -93,7 +85,7 @@ t_error	load_sprites(t_game *game)
 	if (error != ERR_NONE)
 		return (error);
 	error = init_ui(game);
-	if ( error != ERR_NONE)
+	if (error != ERR_NONE)
 		return (error);
 	return (ERR_NONE);
 }

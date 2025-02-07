@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:32:59 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 01:19:58 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/07 10:02:15 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,16 @@ int		handle_keypress(int keycode, t_game *game);
 int		handle_close(t_game *game);
 int		handle_expose(t_game *game);
 
-// core/utils.c
-t_error load_sprite(t_game *game, t_img *img, char *sprite_path);
-char *build_anim_sprite_path(const char *base_path, int frame_num, const char *suffix);
+// core/utils_init.c
+t_error	load_sprite(t_game *game, t_img *img, char *sprite_path);
+char	*build_anim_sprite_path(const char *base_path,
+			int frame_num, const char *suffix);
 void	free_sprite(t_game *game, t_img *sprite);
 void	free_sprite_frames(t_game *game, t_img *sprites, int count);
+
+// core/utils_render.c
+void	render_sprite(t_game *game, t_img *sprite, int x, int y);
+void	render_text(t_game *game, t_text text);
 
 // core/init/core.c
 t_map	*init_map(void);
@@ -55,5 +60,23 @@ void	free_walls_and_background(t_game *game);
 void	free_corner_elements(t_game *game);
 void	free_gameplay_elements(t_game *game);
 void	free_ui_elements(t_game *game);
+
+// core/render/render.c
+void	render_game(t_game *game);
+int		render_next_frame(void *param);
+
+// core/render/render_ui.c
+void	render_ui(t_game *game);
+void	render_collectibles_ui(t_game *game);
+
+// core/render/render_static_elements.c
+void	render_background(t_game *game);
+void	render_player(t_game *game);
+void	render_walls(t_game *game);
+void	render_corner(t_game *game);
+
+// core/render/render_anim_elements.c
+void	render_collectibles(t_game *game);
+void	render_exit(t_game *game);
 
 #endif
