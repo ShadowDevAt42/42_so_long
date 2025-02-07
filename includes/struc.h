@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 01:14:40 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 10:11:33 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/07 10:42:14 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,14 @@ typedef struct s_img
 	int		height;
 }	t_img;
 
+typedef struct s_text
+{
+	int		x;
+	int		y;
+	int		color;
+	char	*str;
+}	t_text;
+
 typedef struct s_corner
 {
 	t_img	top_left;
@@ -96,14 +104,6 @@ typedef struct s_coin_anim
 	int		current_frame;
 	int		is_animating;
 }	t_coin_anim;
-
-typedef struct s_text
-{
-	int		x;
-	int		y;
-	int		color;
-	char	*str;
-}	t_text;
 
 typedef struct s_wall
 {

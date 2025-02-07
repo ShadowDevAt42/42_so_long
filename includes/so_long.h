@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 22:39:36 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 10:38:20 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/07 10:49:31 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include "../libs/libft/includes/libft.h"
 # include "struc.h"
 # include "core.h"
-# include "map.h"
 # include "error.h"
 # include <fcntl.h>
 # include <stdio.h>
