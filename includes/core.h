@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:32:59 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 10:02:15 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/07 10:38:07 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	setup_hooks(t_game *game);
 int		handle_keypress(int keycode, t_game *game);
 int		handle_close(t_game *game);
 int		handle_expose(t_game *game);
+void	handle_player_movement(t_game *game, int keycode);
 
 // core/utils_init.c
 t_error	load_sprite(t_game *game, t_img *img, char *sprite_path);
@@ -78,5 +79,17 @@ void	render_corner(t_game *game);
 // core/render/render_anim_elements.c
 void	render_collectibles(t_game *game);
 void	render_exit(t_game *game);
+
+// core/gameplay/player.c
+int		move_player(t_game *game, int dx, int dy);
+
+// core/gameplay/victory.c
+void	check_collectible(t_game *game, int x, int y);
+void	check_exit(t_game *game, int x, int y);
+
+// core/anim/update_anim.c
+void		update_portal_anim(t_game *game);
+void		start_portal_anim(t_game *game);
+void		update_coin_anim(t_game *game);
 
 #endif

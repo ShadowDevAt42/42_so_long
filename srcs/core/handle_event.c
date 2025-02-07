@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 15:10:41 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 09:38:32 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/07 10:23:36 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,16 @@ int	handle_expose(t_game *game)
 {
 	render_game(game);
 	return (0);
+}
+
+void	handle_player_movement(t_game *game, int keycode)
+{
+	if (keycode == KEY_W)
+		move_player(game, 0, -1);
+	else if (keycode == KEY_S)
+		move_player(game, 0, 1);
+	else if (keycode == KEY_A)
+		move_player(game, -1, 0);
+	else if (keycode == KEY_D)
+		move_player(game, 1, 0);
 }
