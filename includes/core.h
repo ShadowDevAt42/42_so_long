@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:32:59 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 10:49:21 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/07 10:58:21 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,9 @@ void	flood_fill(t_map *map, char **visited, int x, int y);
 // core/parsing/map_validate_path.c
 int	check_reachable_elements(t_map *map, char **visited);
 int	validate_path(t_map *map);
+
+// core/parsing/map_pathfinding.c
+int	find_shortest_valid_path(t_map *map);
 
 // core/parsing/map_validator.c
 t_error	validate_map_file(char *map_path, t_map **map);

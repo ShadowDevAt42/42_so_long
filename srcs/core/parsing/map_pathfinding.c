@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 10:56:00 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 10:56:55 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/07 11:21:57 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -277,20 +277,43 @@ int	find_shortest_valid_path(t_map *map)
 	int		nb_points;
 	int		**dist_matrix;
 	int		shortest_path;
+	int		i;
+	int		j;
 
 	points = collect_important_points(map, &nb_points);
 	if (!points)
-		return (0);
+	{
+		ft_printf("Debug: Failed to collect points\n");
+		return (-1);
+	}
+	ft_printf("Debug: Found %d points (including player and exit)\n", nb_points);
+	ft_printf("Debug: Player at (%d,%d)\n", points[0].x, points[0].y);
+	ft_printf("Debug: Exit at (%d,%d)\n", points[nb_points - 1].x, points[nb_points - 1].y);
+	for (i = 1; i < nb_points - 1; i++)
+		ft_printf("Debug: Collectible %d at (%d,%d)\n", i, points[i].x, points[i].y);
+
 	dist_matrix = compute_distance_matrix(map, points, nb_points);
 	if (!dist_matrix)
 	{
+		ft_printf("Debug: Failed to compute distance matrix\n");
 		free(points);
-		return (0);
+		return (-1);
 	}
+
+	ft_printf("Debug: Distance matrix:\n");
+	for (i = 0; i < nb_points; i++)
+	{
+		for (j = 0; j < nb_points; j++)
+			ft_printf("%3d ", dist_matrix[i][j]);
+		ft_printf("\n");
+	}
+
 	shortest_path = tsp_dp(dist_matrix, nb_points);
+	ft_printf("Debug: TSP returned path length: %d\n", shortest_path);
+
 	free(points);
 	while (--nb_points >= 0)
 		free(dist_matrix[nb_points]);
 	free(dist_matrix);
-	return (shortest_path != -1);
+	return (shortest_path);
 }

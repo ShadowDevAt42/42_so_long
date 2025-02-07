@@ -57,6 +57,7 @@ SRCS = $(SRC_DIR)main.c \
 	$(SRC_DIR)$(CORE_PARSING_DIR)map_load.c \
 	$(SRC_DIR)$(CORE_PARSING_DIR)map_validate_path.c \
 	$(SRC_DIR)$(CORE_PARSING_DIR)map_validator.c \
+	$(SRC_DIR)$(CORE_PARSING_DIR)map_pathfinding.c \
 	$(SRC_DIR)$(ERROR_DIR)error_handler.c \
 	$(SRC_DIR)$(CORE_ANIM_DIR)update_anim.c \
 	$(SRC_DIR)$(CORE_GAMEPLAY_DIR)player.c \

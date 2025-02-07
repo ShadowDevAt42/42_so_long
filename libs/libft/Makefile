@@ -6,7 +6,7 @@
 #    By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 14:21:40 by fdi-tria          #+#    #+#              #
-#    Updated: 2025/02/06 02:38:54 by fdi-tria         ###   ########.fr        #
+#    Updated: 2025/02/07 11:04:29 by fdi-tria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,8 @@ SRCS = $(SRC_DIR)ft_printf.c \
 	$(SRC_DIR)ft_strchr.c \
 	$(SRC_DIR)ft_strdup.c \
 	$(SRC_DIR)ft_strjoin.c \
-	$(SRC_DIR)ft_itoa.c
+	$(SRC_DIR)ft_itoa.c \
+	$(SRC_DIR)ft_min.c
 
 
 # Object files
