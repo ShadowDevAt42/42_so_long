@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:32:59 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 10:49:21 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/08 23:23:55 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,13 @@ t_error	init_portal_anim(t_game *game);
 // core/init/anim_assets.c
 void	free_coin_frames(t_game *game);
 void	free_portal_frames(t_game *game);
+
+// core/init/wall_init.c
+t_error	init_wall_basic(t_game *game);
+t_error	init_wall_internal_h(t_game *game);
+t_error	init_wall_internal_v(t_game *game);
+t_error	init_wall_internal_m1(t_game *game);
+t_error	init_wall_internal_m2(t_game *game);
 
 // core/free/static_assets.c
 void	free_walls_and_background(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 10:33:45 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/08 17:53:21 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/08 23:17:02 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	update_portal_anim(t_game *game)
 {
 	if (!game->portal.is_animating)
 		return ;
-
 	if (game->portal.in_transition)
 	{
 		if (game->portal.current_frame < 24)
@@ -43,7 +42,7 @@ void	start_portal_anim(t_game *game)
 		game->portal.in_transition = 1;
 		game->portal.transition_done = 0;
 		game->portal.current_frame = 0;
-		game->portal.is_open = 0;  // Will be set to 1 after transition
+		game->portal.is_open = 0;
 	}
 }
 

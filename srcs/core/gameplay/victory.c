@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 10:27:14 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/08 18:47:43 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/08 23:15:54 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	check_exit(t_game *game, int x, int y)
 {
 	if (game->map->grid[y][x] == 'E')
 	{
-		if (game->collected == game->map->collectibles && 
-			game->portal.is_open && !game->portal.in_transition)
+		if (game->collected == game->map->collectibles
+			&& game->portal.is_open && !game->portal.in_transition)
 		{
 			game->moves++;
 			ft_printf("Congratulations! You won in %d moves!\n", game->moves);
