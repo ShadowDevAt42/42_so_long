@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 23:13:32 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/09 00:05:28 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/09 00:33:56 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int	main(int argc, char **argv)
 	}
 	if (init_game(argv[1], &game))
 		return (1);
-	render_game(game);
 	mlx_loop_hook(game->mlx, render_next_frame, game);
 	mlx_loop(game->mlx);
 	return (0);
