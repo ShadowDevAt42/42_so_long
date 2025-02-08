@@ -1,89 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/04 22:39:36 by fdi-tria          #+#    #+#             */
+/*   Updated: 2025/02/08 21:58:05 by fdi-tria         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <stdlib.h>
-# include <unistd.h>
+// Includes
+# include "../libs/minilibx-linux/mlx.h"
+# include "../libs/libft/includes/libft.h"
+# include "struc.h"
+# include "core.h"
+# include "error.h"
+# include "render_wall_utils.h"
 # include <fcntl.h>
-# include <math.h>
-# include <mlx.h>
-# include <../libft/includes/libft.h>
+# include <stdio.h>
 
+// Constants
+# define SPRITE_SIZE 64
+# define MAX_WIDTH 1920
+# define MAX_HEIGHT 1080
+# define MAP_CHARS "01CEP\n"
+# define COIN_ANIM_SPEED 10000
+# define PORTAL_TRANSITION_SPEED 7500
+# define PORTAL_OPEN_SPEED 25000
 # define KEY_ESC 65307
 # define KEY_W 119
 # define KEY_A 97
 # define KEY_S 115
 # define KEY_D 100
-# define KEY_UP 65362
-# define KEY_LEFT 65361
-# define KEY_DOWN 65364
-# define KEY_RIGHT 65363
-
-typedef struct s_wall_sprites
-{
-    void    *top;
-    void    *bottom;
-    void    *left;
-    void    *right;
-    void    *corner_tl;
-    void    *corner_tr;
-    void    *corner_bl;
-    void    *corner_br;
-    void    *block;
-}   t_wall_sprites;
-
-typedef struct s_game
-{
-    void            *mlx;
-    void            *win;
-    char            **map;
-    t_wall_sprites  walls;
-    void            *player_img;
-    int             width;
-    int             height;
-    int             img_width;
-    int             img_height;
-    int             player_x;
-    int             player_y;
-    int             moves;
-    // int             scale;
-}   t_game;
-
-/* srcs/utils/memory_utils.c */
-void    *ft_calloc(size_t count, size_t size);
-void    free_ptr(void **ptr);
-void    free_map(t_game *game);
-
-/* srcs/core/game_init.c */
-int     init_game(t_game *game);
-int     init_sprites(t_game *game);
-
-/* srcs/core/game_loop.c */
-int     launch_game(t_game *game);
-
-/* srcs/core/game_cleanup.c */
-void    clean_game(t_game *game);
-int     handle_close(t_game *game);
-
-/* srcs/map/map_reader.c */
-int     read_map(t_game *game, char *filename);
-
-/* srcs/map/map_utils.c */
-int     check_map_dimensions(t_game *game);
-
-/* srcs/player/player_init.c */
-void    find_player_position(t_game *game);
-int     validate_player_position(t_game *game);
-
-/* srcs/player/player_movement.c */
-int     handle_movement(t_game *game, int keysym);
-
-/* srcs/window/window_init.c */
-int     init_window_dimensions(t_game *game);
-void    draw_map(t_game *game);
-
-/* srcs/window/window_events.c */
-int     handle_keypress(int keysym, t_game *game);
-int     handle_destroy(t_game *game);
-int     redraw(t_game *game);
 
 #endif
