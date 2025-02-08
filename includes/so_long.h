@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 22:39:36 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/08 17:46:26 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/08 18:27:08 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 # define MAX_HEIGHT 1080
 # define MAP_CHARS "01CEP\n"
 # define COIN_ANIM_SPEED 10000
-# define PORTAL_TRANSITION_SPEED 15000
-# define PORTAL_OPEN_SPEED 40000
+# define PORTAL_TRANSITION_SPEED 7500
+# define PORTAL_OPEN_SPEED 25000
 # define KEY_ESC 65307
 # define KEY_W 119
 # define KEY_A 97
