@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 21:02:08 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/08 17:42:30 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/08 18:14:27 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,18 +90,18 @@ t_error	init_portal_anim(t_game *game)
 	game->portal.transition_done = 0;
 
 	i = 0;
-	while (i < 23)
+	while (i < 24)
 	{
-		error = load_portal_transition_frame(game, i + 1);
+		error = load_portal_transition_frame(game, i);
 		if (error != ERR_NONE)
 			return (error);
 		i++;
 	}
 
 	i = 0;
-	while (i < 5)
+	while (i < 6)
 	{
-		error = load_portal_open_frame(game, i + 1);
+		error = load_portal_open_frame(game, i);
 		if (error != ERR_NONE)
 			return (error);
 		i++;
