@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 19:20:34 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/08 19:31:33 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/08 21:23:53 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,15 @@ void	free_walls_and_background(t_game *game)
 	free_sprite(game, &game->wall.int_v_top);
 	free_sprite(game, &game->wall.int_v_center);
 	free_sprite(game, &game->wall.int_v_bottom);
+	free_sprite(game, &game->wall.int_m_ctl);
+	free_sprite(game, &game->wall.int_m_ctr);
+	free_sprite(game, &game->wall.int_m_cbl);
+	free_sprite(game, &game->wall.int_m_cbr);
+	free_sprite(game, &game->wall.int_m_wt);
+	free_sprite(game, &game->wall.int_m_wb);
+	free_sprite(game, &game->wall.int_m_wl);
+	free_sprite(game, &game->wall.int_m_wr);
+	free_sprite(game, &game->wall.int_m_center);
 	free_sprite(game, &game->background);
 }
 
