@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 21:02:08 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/08 18:14:27 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/08 18:46:39 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static t_error	load_portal_transition_frame(t_game *game, int i)
 	char	*sprite_path;
 	t_error	error;
 
-	sprite_path = build_anim_sprite_path("srcs/assets/portal/new/transition/exit", i,
+	sprite_path = build_anim_sprite_path("srcs/assets/portal/transition/exit", i,
 			".xpm");
 	if (!sprite_path)
 		return (ERR_MALLOC);
@@ -49,7 +49,7 @@ static t_error	load_portal_open_frame(t_game *game, int i)
 	char	*sprite_path;
 	t_error	error;
 
-	sprite_path = build_anim_sprite_path("srcs/assets/portal/new/open/exit", i,
+	sprite_path = build_anim_sprite_path("srcs/assets/portal/open/exit", i,
 			".xpm");
 	if (!sprite_path)
 		return (ERR_MALLOC);

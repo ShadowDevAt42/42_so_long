@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 19:20:34 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/08 16:50:26 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/08 18:46:26 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ t_error	init_player_and_exit(t_game *game)
 	error = load_sprite(game, &game->player, "srcs/assets/player/player1.xpm");
 	if (error != ERR_NONE)
 		return (error);
-	error = load_sprite(game, &game->exit, "srcs/assets/portal/new/exit_close.xpm");
+	error = load_sprite(game, &game->exit, "srcs/assets/portal/exit_close.xpm");
 	if (error != ERR_NONE)
 		return (error);
 	return (ERR_NONE);
