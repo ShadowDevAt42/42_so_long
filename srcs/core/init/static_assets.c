@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 19:20:34 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/08 19:21:38 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/08 19:32:09 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,18 @@ t_error	init_wall_and_background(t_game *game)
 		return (error);
 	error = load_sprite(game, &game->wall.int_h_center,
 			"srcs/assets/wall/interne/int_h_center.xpm");
+	if (error != ERR_NONE)
+		return (error);
+	error = load_sprite(game, &game->wall.int_v_top,
+			"srcs/assets/wall/interne/int_v_ct.xpm");
+	if (error != ERR_NONE)
+		return (error);
+	error = load_sprite(game, &game->wall.int_v_center,
+			"srcs/assets/wall/interne/int_v_center.xpm");
+	if (error != ERR_NONE)
+		return (error);
+	error = load_sprite(game, &game->wall.int_v_bottom,
+			"srcs/assets/wall/interne/int_v_cb.xpm");
 	if (error != ERR_NONE)
 		return (error);
 	error = load_sprite(game, &game->background, "srcs/assets/wall/back.xpm");

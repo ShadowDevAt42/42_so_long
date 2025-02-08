@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 01:14:40 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/08 19:19:16 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/08 19:30:53 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,9 @@ typedef struct s_wall
 	t_img	int_h_left;
 	t_img	int_h_right;
 	t_img	int_h_center;
+	t_img	int_v_top;
+	t_img	int_v_center;
+	t_img	int_v_bottom;
 }	t_wall;
 
 typedef struct s_ui
