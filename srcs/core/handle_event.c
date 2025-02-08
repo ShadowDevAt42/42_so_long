@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 15:10:41 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 10:23:36 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/08 23:36:45 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 void	setup_hooks(t_game *game)
 {
+	mlx_do_key_autorepeatoff(game->mlx);
 	mlx_hook(game->win, 2, 1L << 0, handle_keypress, game);
 	mlx_hook(game->win, 17, 0L, close_window, game);
 	mlx_hook(game->win, 12, 1L << 15, handle_expose, game);
-	mlx_do_sync(game->mlx);
+	// mlx_do_sync(game->mlx);
 }
 
 int	handle_keypress(int keycode, t_game *game)
