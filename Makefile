@@ -51,6 +51,7 @@ SRCS = $(SRC_DIR)main.c \
 	$(SRC_DIR)$(CORE_RENDER_DIR)render_anim_elements.c \
 	$(SRC_DIR)$(CORE_RENDER_DIR)render_ui.c \
 	$(SRC_DIR)$(CORE_RENDER_DIR)render.c \
+	$(SRC_DIR)$(CORE_RENDER_DIR)render_player.c \
 	$(SRC_DIR)$(CORE_PARSING_DIR)map_validate_basic.c \
 	$(SRC_DIR)$(CORE_PARSING_DIR)map_validate_elements.c \
 	$(SRC_DIR)$(CORE_PARSING_DIR)map_read.c \

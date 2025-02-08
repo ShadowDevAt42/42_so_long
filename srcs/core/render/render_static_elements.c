@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 08:32:17 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 10:09:44 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/08 14:56:06 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,6 @@ void	render_background(t_game *game)
 		}
 		y++;
 	}
-}
-
-void	render_player(t_game *game)
-{
-	render_sprite(game, &game->player, game->map->player_x * SPRITE_SIZE,
-		game->map->player_y * SPRITE_SIZE);
 }
 
 static void	render_wall_type(t_game *game, int x, int y)
