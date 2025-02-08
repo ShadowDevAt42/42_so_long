@@ -44,6 +44,7 @@ SRCS = $(SRC_DIR)main.c \
 	$(SRC_DIR)$(CORE_INIT_DIR)core.c \
 	$(SRC_DIR)$(CORE_INIT_DIR)static_assets.c \
 	$(SRC_DIR)$(CORE_INIT_DIR)anim_assets.c \
+	$(SRC_DIR)$(CORE_INIT_DIR)wall_init.c \
 	$(SRC_DIR)$(CORE_FREE_DIR)core.c \
 	$(SRC_DIR)$(CORE_FREE_DIR)static_assets.c \
 	$(SRC_DIR)$(CORE_FREE_DIR)anim_assets.c \

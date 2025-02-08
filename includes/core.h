@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:32:59 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/08 23:23:55 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/08 23:25:21 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,32 +95,32 @@ void	check_collectible(t_game *game, int x, int y);
 void	check_exit(t_game *game, int x, int y);
 
 // core/anim/update_anim.c
-void		update_portal_anim(t_game *game);
-void		start_portal_anim(t_game *game);
-void		update_coin_anim(t_game *game);
+void	update_portal_anim(t_game *game);
+void	start_portal_anim(t_game *game);
+void	update_coin_anim(t_game *game);
 
 // core/parsing/map_load.c
 t_map	*load_map(char *filename);
 
 // core/parsing/map_read.c
-int	validate_line_chars(char *line);
-int	read_map_line(int fd, t_map *map, int line_num);
-int	count_map_lines(char *filename);
+int		validate_line_chars(char *line);
+int		read_map_line(int fd, t_map *map, int line_num);
+int		count_map_lines(char *filename);
 
 // core/parsing/map_validate_basic.c
-int	check_rectangle(t_map *map);
-int	check_walls(t_map *map);
-int	validate_extension(char *filename);
-int	validate_dimensions(t_map *map);
+int		check_rectangle(t_map *map);
+int		check_walls(t_map *map);
+int		validate_extension(char *filename);
+int		validate_dimensions(t_map *map);
 
 // core/parsing/map_validate_elements.c
-int	validate_elements(t_map *map);
+int		validate_elements(t_map *map);
 void	find_player_pos(t_map *map);
 void	flood_fill(t_map *map, char **visited, int x, int y);
 
 // core/parsing/map_validate_path.c
-int	check_reachable_elements(t_map *map, char **visited);
-int	validate_path(t_map *map);
+int		check_reachable_elements(t_map *map, char **visited);
+int		validate_path(t_map *map);
 
 // core/parsing/map_validator.c
 t_error	validate_map_file(char *map_path, t_map **map);
