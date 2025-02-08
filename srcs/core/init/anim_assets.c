@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 21:02:08 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 08:53:42 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/08 17:42:30 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,32 @@ static t_error	load_coin_frame(t_game *game, int i)
 	return (ERR_NONE);
 }
 
-static t_error	load_portal_frame(t_game *game, int i)
+static t_error	load_portal_transition_frame(t_game *game, int i)
 {
 	char	*sprite_path;
 	t_error	error;
 
-	sprite_path = build_anim_sprite_path("srcs/assets/portal/exit_open", i,
+	sprite_path = build_anim_sprite_path("srcs/assets/portal/new/transition/exit", i,
 			".xpm");
 	if (!sprite_path)
 		return (ERR_MALLOC);
-	error = load_sprite(game, &game->portal.frames[i], sprite_path);
+	error = load_sprite(game, &game->portal.transition_frames[i], sprite_path);
+	free(sprite_path);
+	if (error != ERR_NONE)
+		return (ERR_SPRITE_LOAD);
+	return (ERR_NONE);
+}
+
+static t_error	load_portal_open_frame(t_game *game, int i)
+{
+	char	*sprite_path;
+	t_error	error;
+
+	sprite_path = build_anim_sprite_path("srcs/assets/portal/new/open/exit", i,
+			".xpm");
+	if (!sprite_path)
+		return (ERR_MALLOC);
+	error = load_sprite(game, &game->portal.open_frames[i], sprite_path);
 	free(sprite_path);
 	if (error != ERR_NONE)
 		return (ERR_SPRITE_LOAD);
@@ -70,10 +86,22 @@ t_error	init_portal_anim(t_game *game)
 	game->portal.current_frame = 0;
 	game->portal.is_animating = 0;
 	game->portal.is_open = 0;
+	game->portal.in_transition = 0;
+	game->portal.transition_done = 0;
+
 	i = 0;
-	while (i < 6)
+	while (i < 23)
 	{
-		error = load_portal_frame(game, i);
+		error = load_portal_transition_frame(game, i + 1);
+		if (error != ERR_NONE)
+			return (error);
+		i++;
+	}
+
+	i = 0;
+	while (i < 5)
+	{
+		error = load_portal_open_frame(game, i + 1);
 		if (error != ERR_NONE)
 			return (error);
 		i++;

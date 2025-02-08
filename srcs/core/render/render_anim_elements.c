@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 08:32:17 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 09:59:17 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/08 17:53:08 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,18 @@ void	render_collectibles(t_game *game)
 
 static void	set_exit_portal(t_game *game, t_img **current_frame)
 {
-	if (game->portal.is_animating || game->portal.is_open)
-		*current_frame = &game->portal.frames[game->portal.current_frame];
+	if (game->portal.is_animating)
+	{
+		if (game->portal.in_transition)
+		{
+			if (game->portal.current_frame == 0)
+				*current_frame = &game->exit;
+			else
+				*current_frame = &game->portal.transition_frames[game->portal.current_frame - 1];
+		}
+		else if (game->portal.transition_done)
+			*current_frame = &game->portal.open_frames[game->portal.current_frame];
+	}
 	else
 		*current_frame = &game->exit;
 }
@@ -49,9 +59,8 @@ static void	check_and_start_portal(t_game *game, int i, int j)
 	if (game->map->grid[i][j] == 'E')
 	{
 		if (game->collected == game->map->collectibles
-			&& !game->portal.is_open)
+			&& !game->portal.is_open && !game->portal.is_animating)
 		{
-			game->portal.is_open = 1;
 			start_portal_anim(game);
 		}
 	}

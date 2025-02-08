@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 08:32:49 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 09:35:19 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/08 17:54:50 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ static void	render_portal_if_needed(t_game *game)
 		j = 0;
 		while (j < game->map->width)
 		{
-			if (game->map->grid[i][j] == 'E' &&
-				(game->portal.is_animating || game->portal.is_open))
+			if (game->map->grid[i][j] == 'E')
+			{
 				render_exit(game);
+				return ;
+			}
 			j++;
 		}
 		i++;
@@ -41,19 +43,26 @@ int	render_next_frame(void *param)
 	game = (t_game *)param;
 	portal_counter++;
 	coin_counter++;
-	if (portal_counter >= PORTAL_ANIM_SPEED)
+
+	if (game->portal.is_animating)
 	{
-		portal_counter = 0;
-		update_portal_anim(game);
-		if (game->portal.is_animating || game->portal.is_open)
+		int speed = game->portal.in_transition ? 
+			PORTAL_TRANSITION_SPEED : PORTAL_OPEN_SPEED;
+		if (portal_counter >= speed)
+		{
+			portal_counter = 0;
+			update_portal_anim(game);
 			render_portal_if_needed(game);
+		}
 	}
+
 	if (coin_counter >= COIN_ANIM_SPEED)
 	{
 		coin_counter = 0;
 		update_coin_anim(game);
 		render_collectibles(game);
 	}
+
 	return (0);
 }
 
@@ -64,7 +73,7 @@ void	render_game(t_game *game)
 	render_walls(game);
 	render_corner(game);
 	render_collectibles(game);
-	render_exit(game);
+	render_portal_if_needed(game);
 	render_player(game);
 	render_ui(game);
 	render_collectibles_ui(game);
