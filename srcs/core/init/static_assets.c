@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 19:20:34 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/08 19:00:25 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/08 19:21:38 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_error	init_wall_and_background(t_game *game)
 {
 	t_error	error;
 
-	error = load_sprite(game, &game->wall.wall, "srcs/assets/wall/bloc.xpm");
+	error = load_sprite(game, &game->wall.wall, "srcs/assets/wall/interne/bloc.xpm");
 	if (error != ERR_NONE)
 		return (error);
 	error = load_sprite(game, &game->wall.top, "srcs/assets/wall/top.xpm");
@@ -30,6 +30,18 @@ t_error	init_wall_and_background(t_game *game)
 	if (error != ERR_NONE)
 		return (error);
 	error = load_sprite(game, &game->wall.right, "srcs/assets/wall/wall_r.xpm");
+	if (error != ERR_NONE)
+		return (error);
+	error = load_sprite(game, &game->wall.int_h_left,
+			"srcs/assets/wall/interne/int_h_cl.xpm");
+	if (error != ERR_NONE)
+		return (error);
+	error = load_sprite(game, &game->wall.int_h_right,
+			"srcs/assets/wall/interne/int_h_cr.xpm");
+	if (error != ERR_NONE)
+		return (error);
+	error = load_sprite(game, &game->wall.int_h_center,
+			"srcs/assets/wall/interne/int_h_center.xpm");
 	if (error != ERR_NONE)
 		return (error);
 	error = load_sprite(game, &game->background, "srcs/assets/wall/back.xpm");
