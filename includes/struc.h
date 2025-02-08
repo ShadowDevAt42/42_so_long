@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 01:14:40 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/08 21:23:15 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/08 21:56:59 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,43 @@ typedef struct s_error_info
 	char	*sprite_path;
 	char	*additional_info;
 }	t_error_info;
+
+typedef struct s_point
+{
+	int	x;
+	int	y;
+}	t_point;
+
+typedef struct s_rect
+{
+	int	width;
+	int	height;
+}	t_rect;
+
+typedef struct s_wall_pos
+{
+	int	x;
+	int	y;
+	int	rect_x;
+	int	rect_y;
+	int	width;
+	int	height;
+	int	is_top;
+	int	is_bottom;
+	int	is_left;
+	int	is_right;
+	int	is_corner;
+}	t_wall_pos;
+
+typedef struct s_wall_info
+{
+	int	x;
+	int	y;
+	int	has_left;
+	int	has_right;
+	int	has_top;
+	int	has_bottom;
+}	t_wall_info;
 
 typedef struct s_map
 {

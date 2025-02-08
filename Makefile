@@ -47,7 +47,11 @@ SRCS = $(SRC_DIR)main.c \
 	$(SRC_DIR)$(CORE_FREE_DIR)core.c \
 	$(SRC_DIR)$(CORE_FREE_DIR)static_assets.c \
 	$(SRC_DIR)$(CORE_FREE_DIR)anim_assets.c \
-	$(SRC_DIR)$(CORE_RENDER_DIR)render_static_elements.c \
+	$(SRC_DIR)$(CORE_RENDER_DIR)render_basic.c \
+	$(SRC_DIR)$(CORE_RENDER_DIR)wall_detection.c \
+	$(SRC_DIR)$(CORE_RENDER_DIR)wall_render_utils.c \
+	$(SRC_DIR)$(CORE_RENDER_DIR)wall_render.c \
+	$(SRC_DIR)$(CORE_RENDER_DIR)render_wall_utils.c \
 	$(SRC_DIR)$(CORE_RENDER_DIR)render_anim_elements.c \
 	$(SRC_DIR)$(CORE_RENDER_DIR)render_ui.c \
 	$(SRC_DIR)$(CORE_RENDER_DIR)render.c \

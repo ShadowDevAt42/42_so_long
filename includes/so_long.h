@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 22:39:36 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/08 18:27:08 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/08 21:58:05 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "struc.h"
 # include "core.h"
 # include "error.h"
+# include "render_wall_utils.h"
 # include <fcntl.h>
 # include <stdio.h>
 
