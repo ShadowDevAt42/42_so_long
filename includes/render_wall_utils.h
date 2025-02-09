@@ -6,15 +6,12 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 21:57:00 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/08 22:15:50 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/09 00:56:27 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RENDER_WALL_UTILS_H
 # define RENDER_WALL_UTILS_H
-
-# include "so_long.h"
-# include "struc.h"
 
 // Basic rendering functions
 void		render_background(t_game *game);
