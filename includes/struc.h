@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 01:14:40 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/09 00:17:23 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/09 02:38:29 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,6 +193,7 @@ typedef struct s_game
 	int				moves;
 	int				collected;
 	int				on_exit;
+	t_img			bomb;
 }	t_game;
 
 #endif

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../../../includes/so_long.h"
-#include "../../../includes/render_wall_utils.h"
 
 void	render_rect_wall_corners(t_game *game, t_wall_pos pos)
 {

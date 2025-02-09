@@ -6,11 +6,11 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 22:01:00 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/08 22:03:11 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/09 02:31:38 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/render_wall_utils.h"
+#include "../../../includes/so_long.h"
 
 int	is_wall(t_game *game, int x, int y)
 {

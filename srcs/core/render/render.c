@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 08:32:49 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/09 00:24:20 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/09 02:38:57 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,5 @@ void	render_game(t_game *game)
 	render_player(game);
 	render_ui(game);
 	render_collectibles_ui(game);
+	render_bomb(game);
 }

@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:32:59 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/08 23:25:21 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/09 02:40:24 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	free_ui_elements(t_game *game);
 // core/render/render.c
 void	render_game(t_game *game);
 int		render_next_frame(void *param);
+void	render_bomb(t_game *game);
 
 // core/render/render_ui.c
 void	render_ui(t_game *game);

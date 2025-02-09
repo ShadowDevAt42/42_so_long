@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../../../includes/so_long.h"
-#include "../../../includes/render_wall_utils.h"
 
 t_wall_pos	init_wall_pos(int x, int y, t_point start, t_rect rect)
 {

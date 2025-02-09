@@ -6,12 +6,11 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 08:32:17 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/08 22:13:15 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/09 02:32:21 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/so_long.h"
-#include "../../../includes/render_wall_utils.h"
 
 void	get_rect_size(t_game *game, int x, int y, t_rect *rect)
 {

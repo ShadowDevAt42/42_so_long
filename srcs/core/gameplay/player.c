@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 10:26:49 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/08 23:16:23 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/09 02:44:03 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ static int	is_valid_move(t_game *game, int new_x, int new_y)
 	if (game->map->grid[new_y][new_x] == 'E'
 		&& game->portal.in_transition)
 		return (0);
+	if (game->map->grid[new_y][new_x] == '?')
+	{
+		ft_printf("\nGame Over! You hit a bomb!\n");
+		close_window(game);
+		return (0);
+	}
 	return (game->map->grid[new_y][new_x] != '1');
 }
 

@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 23:08:07 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 10:44:28 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/09 02:28:32 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	is_valid_char(char c)
 {
 	return (c == '0' || c == '1' || c == 'C' || c == 'E' || c == 'P'
-		|| c == '\n');
+		|| c == '?' || c == '\n');
 }
 
 int	validate_line_chars(char *line)
