@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 23:06:56 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 10:45:33 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/12 09:02:41 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,27 @@ int	check_rectangle(t_map *map)
 	int	len;
 
 	if (!map || !map->grid || map->height <= 0)
+	{
 		return (0);
+	}
 	i = 0;
 	while (i < map->height)
 	{
 		if (!map->grid[i])
+		{
 			return (0);
+		}
 		len = ft_strlen(map->grid[i]);
 		if (map->grid[i][len - 1] == '\n')
 			len--;
 		if (i == 0)
+		{
 			map->width = len;
+		}
 		else if (len != map->width)
+		{
 			return (0);
+		}
 		i++;
 	}
 	return (1);

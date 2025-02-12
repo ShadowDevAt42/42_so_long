@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 23:08:34 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 10:43:10 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/12 09:04:45 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static t_map	*allocate_map_grid(int height)
 		free(map);
 		return (NULL);
 	}
+	map->error = 0;  // Initialize the error field
 	return (map);
 }
 
@@ -38,9 +39,8 @@ static t_map	*parse_map_lines(int fd, t_map *map, int height)
 	{
 		if (!read_map_line(fd, map, i))
 		{
-			free_map(map);
-			close(fd);
-			return (NULL);
+			map->error = 1;
+			return (map);
 		}
 		i++;
 	}
@@ -62,7 +62,9 @@ t_map	*load_map(char *filename)
 		return (NULL);
 	map = allocate_map_grid(height);
 	if (!map)
+	{
 		return (NULL);
+	}
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 	{
@@ -71,5 +73,12 @@ t_map	*load_map(char *filename)
 	}
 	map = parse_map_lines(fd, map, height);
 	close(fd);
-	return (map);
+	if (map && map->error)
+	{
+		free_map(map);
+		return ((t_map *)-3);
+	}
+	else if (map)
+		return (map);
+	return (NULL);  // Add this line to handle any remaining cases
 }

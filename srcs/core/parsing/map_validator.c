@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 00:08:51 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 10:48:41 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/12 09:03:31 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,30 @@ static t_error	validate_map_content(t_map *map)
 t_error	validate_map_file(char *map_path, t_map **map)
 {
 	if (!map_path)
+	{
 		return (ERR_ARGS);
+	}
 	if (!validate_extension(map_path))
+	{
 		return (ERR_EXTENSION);
+	}
 	*map = load_map(map_path);
 	if (*map == (t_map *)-1)
+	{
 		return (ERR_EMPTY);
+	}
 	if (*map == (t_map *)-2)
+	{
 		return (ERR_INVALID_CHAR);
+	}
+	if (*map == (t_map *)-3)
+	{
+		return (ERR_NOT_RECT);
+	}
 	if (!*map)
+	{
 		return (ERR_OPEN);
+	}
 	return (ERR_NONE);
 }
 

@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 01:14:40 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/09 02:38:29 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/12 08:55:39 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ typedef struct s_map
 	int		player;
 	int		player_x;
 	int		player_y;
+	int		error;
 }	t_map;
 
 typedef struct s_img

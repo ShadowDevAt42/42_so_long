@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 19:20:34 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/08 21:23:53 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/12 08:33:12 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	free_gameplay_elements(t_game *game)
 {
 	free_sprite(game, &game->player);
 	free_sprite(game, &game->exit);
+	free_sprite(game, &game->bomb);
 }
 
 void	free_ui_elements(t_game *game)
