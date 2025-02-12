@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 23:08:34 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 10:43:10 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/12 11:20:59 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ static t_map	*parse_map_lines(int fd, t_map *map, int height)
 		if (!read_map_line(fd, map, i))
 		{
 			free_map(map);
+			while (get_next_line(fd))
+				;
 			close(fd);
 			return (NULL);
 		}
@@ -54,12 +56,14 @@ t_map	*load_map(char *filename)
 	int		height;
 
 	height = count_map_lines(filename);
-	if (height == 0)
-		return ((t_map *)-1);
-	if (height == -1)
-		return ((t_map *)-2);
-	if (height < 0)
+	if (height <= 0)
+	{
+		if (height == 0)
+			return ((t_map *)-1);
+		if (height == -1)
+			return ((t_map *)-2);
 		return (NULL);
+	}
 	map = allocate_map_grid(height);
 	if (!map)
 		return (NULL);

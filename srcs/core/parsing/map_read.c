@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 23:08:07 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/09 02:28:32 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/12 11:28:09 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,19 @@ int	validate_line_chars(char *line)
 	return (1);
 }
 
+static void	cleanup_remaining_lines(int fd)
+{
+	char	*tmp;
+
+	while (1)
+	{
+		tmp = get_next_line(fd);
+		if (!tmp)
+			break ;
+		free(tmp);
+	}
+}
+
 int	read_map_line(int fd, t_map *map, int line_num)
 {
 	char	*line;
@@ -44,6 +57,7 @@ int	read_map_line(int fd, t_map *map, int line_num)
 	if (!validate_line_chars(line))
 	{
 		free(line);
+		cleanup_remaining_lines(fd);
 		return (0);
 	}
 	map->grid[line_num] = ft_strdup(line);
@@ -71,6 +85,7 @@ int	count_map_lines(char *filename)
 		if (!validate_line_chars(line))
 		{
 			free(line);
+			cleanup_remaining_lines(fd);
 			close(fd);
 			return (-1);
 		}

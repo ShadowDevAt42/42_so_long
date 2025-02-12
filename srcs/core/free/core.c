@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:09:56 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/06 23:28:08 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/12 11:11:56 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	free_map(t_map *map)
 	if (map->grid)
 	{
 		i = 0;
-		while (i < map->height)
+		while (i < map->height && map->grid[i])
 		{
 			free(map->grid[i]);
 			i++;
@@ -37,11 +37,12 @@ void	free_window(t_game *game)
 		return ;
 	if (game->map)
 		free_map(game->map);
-	if (game->win)
-		mlx_destroy_window(game->mlx, game->win);
 	if (game->mlx)
 	{
 		free_sprites(game);
+		if (game->win)
+			mlx_destroy_window(game->mlx, game->win);
+		mlx_destroy_display(game->mlx);
 		free(game->mlx);
 	}
 	free(game);
