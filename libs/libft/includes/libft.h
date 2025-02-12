@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 14:17:27 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/06 02:38:29 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/12 10:40:37 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void		*ft_memcpy(void *dst, const void *src, size_t n);
 void		*ft_memchr(const void *s, int c, size_t n);
 t_fd_list	*ft_get_fd_node(t_fd_list **head, int fd);
 void		ft_remove_fd_node(t_fd_list **head, int fd);
+void		ft_cleanup_gnl(void);
 
 //Libft
 int	ft_putstr(char *str);

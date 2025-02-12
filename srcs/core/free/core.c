@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:09:56 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/12 08:56:41 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/12 10:32:49 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	free_map(t_map *map)
 	free(map);
 }
 
-void	free_window(t_game *game)
+void	free_game(t_game *game)
 {
 	if (!game)
 		return ;
@@ -50,7 +50,7 @@ void	free_window(t_game *game)
 
 int	close_window(t_game *game)
 {
-	free_window(game);
+	free_game(game);
 	exit(0);
 	return (0);
 }

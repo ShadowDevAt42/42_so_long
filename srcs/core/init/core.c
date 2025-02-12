@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:07:18 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/07 08:56:41 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/12 10:34:16 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static t_game	*init_game_struct(t_map *map)
 	if (!game->mlx)
 	{
 		handle_error(ERR_MLX_INIT);
-		free_window(game);
+		free_game(game);
 		return (NULL);
 	}
 	return (game);

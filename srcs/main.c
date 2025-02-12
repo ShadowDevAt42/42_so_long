@@ -6,11 +6,20 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 23:13:32 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/12 09:00:05 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/12 10:36:08 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
+
+static void	cleanup(t_game *game)
+{
+	if (game)
+	{
+		free_game(game);
+	}
+	ft_cleanup_gnl();
+}
 
 static int	init_game(char *map_path, t_game **game)
 {
@@ -44,9 +53,11 @@ int	main(int argc, char **argv)
 	}
 	if (init_game(argv[1], &game))
 	{
+		cleanup(NULL);
 		return (1);
 	}
 	mlx_loop_hook(game->mlx, render_next_frame, game);
 	mlx_loop(game->mlx);
+	cleanup(game);
 	return (0);
 }

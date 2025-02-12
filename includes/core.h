@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:32:59 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/12 09:45:44 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/12 10:33:47 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_error	load_sprites(t_game *game);
 
 //core/free/core.c
 void	free_map(t_map *map);
-void	free_window(t_game *game);
+void	free_game(t_game *game);
 int		close_window(t_game *game);
 void	free_sprites(t_game *game);
 

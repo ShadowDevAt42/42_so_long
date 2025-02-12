@@ -6,11 +6,13 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:46:43 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/03 15:46:54 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/12 10:35:01 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
+
+t_fd_list	*head;
 
 static int	ft_read_and_append(int fd, t_fd_list *node, char *tmp_buf)
 {
@@ -84,11 +86,26 @@ static void	ft_update_buffer(t_fd_list *node)
 	node->data[node->len] = '\0';
 }
 
+void	ft_cleanup_gnl(void)
+{
+	t_fd_list	*current;
+	t_fd_list	*next;
+
+	current = head;
+	while (current)
+	{
+		next = current->next;
+		free(current->data);
+		free(current);
+		current = next;
+	}
+	head = NULL;
+}
+
 char	*get_next_line(int fd)
 {
-	static t_fd_list	*head;
-	t_fd_list			*node;
-	char				*line;
+	t_fd_list	*node;
+	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
