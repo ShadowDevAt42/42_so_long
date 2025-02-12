@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 08:32:17 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/09 02:38:10 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/12 09:39:43 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	render_bomb(t_game *game)
 		y++;
 	}
 }
-
 
 void	render_corner(t_game *game)
 {

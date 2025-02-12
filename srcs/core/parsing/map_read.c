@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 23:08:07 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/12 09:02:19 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/12 09:35:10 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,42 +34,9 @@ int	validate_line_chars(char *line)
 	return (1);
 }
 
-int	read_map_line(int fd, t_map *map, int line_num)
+static void	process_map_elements(t_map *map, int line_num, int line_length)
 {
-	char	*line;
-	int		i;
-	int		line_length;
-
-	line = get_next_line(fd);
-	if (!line)
-	{
-		return (0);
-	}
-	if (!validate_line_chars(line))
-	{
-		free(line);
-		return (0);
-	}
-	line_length = ft_strlen(line);
-	if (line[line_length - 1] == '\n')
-		line_length--;  // Exclude newline if present
-
-	if (map->width == 0)
-	{
-		map->width = line_length;
-	}
-	else if (line_length != map->width)
-	{
-		free(line);
-		return (0);  // Line width mismatch
-	}
-
-	map->grid[line_num] = ft_strdup(line);
-	if (!map->grid[line_num])
-	{
-		free(line);
-		return (0);
-	}
+	int	i;
 
 	i = 0;
 	while (map->grid[line_num][i] && i < line_length)
@@ -86,6 +53,32 @@ int	read_map_line(int fd, t_map *map, int line_num)
 		}
 		i++;
 	}
+}
+
+int	read_map_line(int fd, t_map *map, int line_num)
+{
+	char	*line;
+	int		line_length;
+
+	line = get_next_line(fd);
+	if (!line || !validate_line_chars(line))
+	{
+		free(line);
+		return (0);
+	}
+	line_length = ft_strlen(line);
+	if (!validate_map_line(line, map, line_length))
+	{
+		free(line);
+		return (0);
+	}
+	map->grid[line_num] = ft_strdup(line);
+	if (!map->grid[line_num])
+	{
+		free(line);
+		return (0);
+	}
+	process_map_elements(map, line_num, line_length);
 	free(line);
 	return (1);
 }

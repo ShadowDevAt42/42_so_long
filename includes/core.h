@@ -6,7 +6,7 @@
 /*   By: fdi-tria <fdi-tria@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:32:59 by fdi-tria          #+#    #+#             */
-/*   Updated: 2025/02/09 02:40:24 by fdi-tria         ###   ########.fr       */
+/*   Updated: 2025/02/12 09:45:44 by fdi-tria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,5 +126,8 @@ int		validate_path(t_map *map);
 // core/parsing/map_validator.c
 t_error	validate_map_file(char *map_path, t_map **map);
 t_error	validate_all(char *map_path, t_map **map);
+
+// core/parsing/map_utils.c
+int		validate_map_line(char *line, t_map *map, int line_length);
 
 #endif
